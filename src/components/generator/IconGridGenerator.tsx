@@ -65,22 +65,16 @@ export default function IconGridGenerator({
       const imageUrl = `${baseUrl}/api/icons?i=${iconIds}&theme=${theme}&perline=${perLine}`;
       markdown = `![${title}](${imageUrl})`;
     } else {
-      // 個別アイコンをHTMLで生成
       const iconSize = 48;
       const icons = selectedTech
         .map((tech) => {
           const iconUrl = `${baseUrl}/api/icon?i=${tech.id}&theme=${theme}&size=${iconSize}`;
-          // 公式サイトのリンクを取得
           const link = getTechLink(tech.id, tech.name);
-          return `  <a href="${link}" target="_blank" rel="noopener noreferrer">
-    <img src="${iconUrl}" alt="${tech.name}" width="${iconSize}" height="${iconSize}" />
-  </a>`;
+          return `<a href="${link}" target="_blank" rel="noopener noreferrer"><img src="${iconUrl}" alt="${tech.name}" width="${iconSize}" height="${iconSize}" /></a>`;
         })
-        .join("\n");
+        .join(" ");
 
-      markdown = `<p align="center">
-${icons}
-</p>`;
+      markdown = `<p align="center">${icons}</p>`;
     }
 
     setGeneratedMarkdown(markdown);
