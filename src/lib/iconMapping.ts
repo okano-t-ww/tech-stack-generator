@@ -71,7 +71,6 @@ export const iconMapping: Record<string, string> = {
 
   // F
   fastapi: "logos:fastapi",
-  fediverse: "logos:fediverse",
   figma: "logos:figma",
   firebase: "logos:firebase-icon",
   flask: "logos:flask",
@@ -171,8 +170,6 @@ export const iconMapping: Record<string, string> = {
   php: "logos:php",
   phpstorm: "logos:phpstorm",
   pinia: "logos:pinia",
-  pkl: "logos:pkl",
-  plan9: "logos:plan9",
   planetscale: "logos:planetscale",
   pnpm: "logos:pnpm",
   postgres: "logos:postgresql",
