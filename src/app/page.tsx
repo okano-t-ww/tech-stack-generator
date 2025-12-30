@@ -1,5 +1,5 @@
-import TechStackGenerateContainer from "@/components/TechStackGenerateContainer";
+import GeneratorContainer from "@/components/generator/GeneratorContainer";
 
 export default function Home() {
-  return <TechStackGenerateContainer />;
+  return <GeneratorContainer />;
 }

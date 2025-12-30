@@ -1,14 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    dangerouslyAllowSVG: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "skillicons.dev",
-      },
-    ],
-  },
+  // Iconifyを使用するため、外部画像設定は不要
 };
 
 export default nextConfig;
