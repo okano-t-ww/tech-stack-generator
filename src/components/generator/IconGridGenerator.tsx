@@ -235,7 +235,7 @@ export default function IconGridGenerator({
                   ) : (
                     <div
                       dangerouslySetInnerHTML={{ __html: generatedMarkdown }}
-                      className="flex items-center justify-center"
+                      className="flex items-center justify-center [&_a]:inline-block"
                     />
                   )}
                 </div>
