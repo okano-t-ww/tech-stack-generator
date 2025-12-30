@@ -20,7 +20,6 @@ export const TECH_STACK_LIST: TechItem[] = [
   { id: "au", name: "AU (Audio Units)", category: TechCategory.Other },
   { id: "autocad", name: "AutoCAD", category: TechCategory.Other },
   { id: "aws", name: "Amazon Web Services", category: TechCategory.Cloud },
-  { id: "azul", name: "Azul Systems", category: TechCategory.Platform },
   { id: "azure", name: "Microsoft Azure", category: TechCategory.Cloud },
   { id: "babel", name: "Babel", category: TechCategory.Library },
   { id: "bash", name: "Bash", category: TechCategory.Language },

@@ -19,7 +19,6 @@ export const iconMapping: Record<string, string> = {
   au: "simple-icons:adobeaudition",
   autocad: "simple-icons:autocad",
   aws: "devicon:amazonwebservices",
-  azul: "logos:azul",
   azure: "devicon:azure",
 
   // B
