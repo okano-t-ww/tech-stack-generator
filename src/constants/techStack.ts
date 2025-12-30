@@ -63,7 +63,6 @@ export const TECH_STACK_LIST: TechItem[] = [
   { id: "elixir", name: "Elixir", category: TechCategory.Language },
   { id: "emacs", name: "GNU Emacs", category: TechCategory.Platform },
   { id: "ember", name: "Ember.js", category: TechCategory.Framework },
-  { id: "emotion", name: "Emotion", category: TechCategory.Library },
   { id: "express", name: "Express.js", category: TechCategory.Framework },
   { id: "fastapi", name: "FastAPI", category: TechCategory.Framework },
   { id: "fediverse", name: "Fediverse", category: TechCategory.Other },

@@ -70,7 +70,6 @@ export const iconMapping: Record<string, string> = {
   elixir: "devicon:elixir",
   emacs: "logos:gnuemacs",
   ember: "logos:ember",
-  emotion: "devicon:emotion",
   express: "logos:express",
 
   // F
