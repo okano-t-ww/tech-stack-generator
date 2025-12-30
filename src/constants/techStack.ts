@@ -61,7 +61,6 @@ export const TECH_STACK_LIST: TechItem[] = [
   { id: "elasticsearch", name: "Elasticsearch", category: TechCategory.Database },
   { id: "electron", name: "Electron", category: TechCategory.Framework },
   { id: "elixir", name: "Elixir", category: TechCategory.Language },
-  { id: "elysia", name: "Elysia", category: TechCategory.Framework },
   { id: "emacs", name: "GNU Emacs", category: TechCategory.Platform },
   { id: "ember", name: "Ember.js", category: TechCategory.Framework },
   { id: "emotion", name: "Emotion", category: TechCategory.Library },
@@ -90,7 +89,6 @@ export const TECH_STACK_LIST: TechItem[] = [
   { id: "gulp", name: "Gulp", category: TechCategory.BuildTool },
   { id: "haskell", name: "Haskell", category: TechCategory.Language },
   { id: "haxe", name: "Haxe", category: TechCategory.Language },
-  { id: "haxeflixel", name: "HaxeFlixel", category: TechCategory.Framework },
   { id: "heroku", name: "Heroku", category: TechCategory.Cloud },
   { id: "hibernate", name: "Hibernate", category: TechCategory.Framework },
   { id: "html", name: "HTML", category: TechCategory.Language },
@@ -233,6 +231,5 @@ export const TECH_STACK_LIST: TechItem[] = [
   { id: "workers", name: "Workers", category: TechCategory.Other },
   { id: "xd", name: "Adobe XD", category: TechCategory.Other },
   { id: "yarn", name: "Yarn", category: TechCategory.Other },
-  { id: "yew", name: "Yew", category: TechCategory.Framework },
   { id: "zig", name: "Zig", category: TechCategory.Language }
 ];

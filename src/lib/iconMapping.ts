@@ -2,7 +2,7 @@ export const iconMapping: Record<string, string> = {
   // A
   ableton: "devicon:ableton",
   activitypub: "logos:activitypub",
-  actix: "logos:actix",
+  actix: "simple-icons:actix",
   adonis: "logos:adonisjs",
   ae: "simple-icons:adobeaftereffects",
   aiscript: "logos:aiscript",
@@ -27,7 +27,7 @@ export const iconMapping: Record<string, string> = {
   // B
   babel: "logos:babel",
   bash: "logos:bash",
-  bevy: "logos:bevy",
+  bevy: "simple-icons:bevy",
   bitbucket: "logos:bitbucket",
   blender: "logos:blender",
   bootstrap: "logos:bootstrap",
@@ -68,9 +68,8 @@ export const iconMapping: Record<string, string> = {
   elasticsearch: "logos:elasticsearch",
   electron: "logos:electron",
   elixir: "devicon:elixir",
-  elysia: "logos:elysia",
   emacs: "logos:gnuemacs",
-  ember: "logos:emberjs",
+  ember: "logos:ember",
   emotion: "devicon:emotion",
   express: "logos:express",
 
@@ -97,13 +96,12 @@ export const iconMapping: Record<string, string> = {
   godot: "logos:godotengine",
   grafana: "logos:grafana",
   graphql: "logos:graphql",
-  gtk: "logos:gtk",
+  gtk: "simple-icons:gtk",
   gulp: "logos:gulp",
 
   // H
   haskell: "logos:haskell",
   haxe: "logos:haxe",
-  haxeflixel: "logos:haxeflixel",
   heroku: "devicon:heroku",
   hibernate: "logos:hibernate",
   html: "logos:html-5",
@@ -199,7 +197,7 @@ export const iconMapping: Record<string, string> = {
   // R
   r: "logos:r-lang",
   rabbitmq: "logos:rabbitmq",
-  rails: "logos:rubyonrails",
+  rails: "logos:rails",
   raspberrypi: "logos:raspberrypi",
   react: "logos:react",
   reactivex: "logos:reactivex",
@@ -211,7 +209,7 @@ export const iconMapping: Record<string, string> = {
   replit: "logos:replit",
   rider: "logos:rider",
   robloxstudio: "logos:robloxstudio",
-  rocket: "logos:rocket",
+  rocket: "simple-icons:rocket",
   rollupjs: "logos:rollupjs",
   ros: "logos:ros",
   ruby: "logos:ruby",
@@ -262,7 +260,7 @@ export const iconMapping: Record<string, string> = {
   vitest: "logos:vitest",
   vscode: "devicon:vscode",
   vscodium: "logos:vscodium",
-  vue: "logos:vuejs",
+  vue: "logos:vue",
   vuetify: "logos:vuetify",
 
   // W
@@ -278,7 +276,6 @@ export const iconMapping: Record<string, string> = {
   // X-Y-Z
   xd: "simple-icons:adobexd",
   yarn: "logos:yarn",
-  yew: "logos:yew",
   zig: "logos:zig",
 };
 
