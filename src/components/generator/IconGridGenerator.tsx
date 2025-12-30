@@ -4,16 +4,16 @@ import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
-import { Copy, Moon, Sun, CheckSquare, SquareMinus, Square } from "lucide-react";
+import { Copy, CheckSquare, SquareMinus, Square } from "lucide-react";
 import React from "react";
 import { Toggle } from "@/components/ui/toggle";
-import { Switch } from "@/components/ui/switch";
 import { Combobox } from "@/components/utils/Combobox";
 import { TooltipIconButton } from "@/components/utils/TooltipIconButton";
 import TechIconGrid from "@/components/generator/TechIconGrid";
 import { DndList } from "@/components/utils/DndList";
 import { getTechLink } from "@/lib/techLinks";
-import type { TechItem, IconTheme, PerLine, TechCategory } from "@/types/tech";
+import { getIconifyIcon } from "@/lib/iconMapping";
+import type { TechItem, PerLine, TechCategory } from "@/types/tech";
 
 export interface IconGridGeneratorProps {
   title: string;
@@ -29,7 +29,6 @@ export default function IconGridGenerator({
   categories,
 }: IconGridGeneratorProps) {
   const [selectedTech, setSelectedTech] = useState<TechItem[]>([]);
-  const [theme, setTheme] = useState<IconTheme>("dark");
   const [perLine, setPerLine] = useState<PerLine>(10);
   const [generatedMarkdown, setGeneratedMarkdown] = useState<string>("");
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("single");
@@ -52,29 +51,31 @@ export default function IconGridGenerator({
   const selectedIconIds = selectedTech.map((tech) => tech.id);
 
   const generateMarkdown = () => {
-    const baseUrl =
-      typeof window !== "undefined"
-        ? window.location.origin
-        : "https://tech-stack-generator.vercel.app";
-
     let markdown = "";
 
     if (outputFormat === "single") {
-      // 1つの画像として生成
-      const iconIds = selectedTech.map((tech) => tech.id).join(",");
-      const imageUrl = `${baseUrl}/api/icons?i=${iconIds}&theme=${theme}&perline=${perLine}`;
-      markdown = `![${title}](${imageUrl})`;
+      const iconSize = 48;
+      const icons = selectedTech
+        .map((tech) => {
+          const iconifyId = getIconifyIcon(tech.id);
+          const iconUrl = `https://api.iconify.design/${iconifyId}.svg?width=${iconSize}&height=${iconSize}`;
+          return `<img src="${iconUrl}" alt="${tech.name}" width="${iconSize}" height="${iconSize}" />`;
+        })
+        .join(" ");
+
+      markdown = `<p align="center">\n  ${icons}\n</p>`;
     } else {
       const iconSize = 48;
       const icons = selectedTech
         .map((tech) => {
-          const iconUrl = `${baseUrl}/api/icon?i=${tech.id}&theme=${theme}&size=${iconSize}`;
+          const iconifyId = getIconifyIcon(tech.id);
+          const iconUrl = `https://api.iconify.design/${iconifyId}.svg?width=${iconSize}&height=${iconSize}`;
           const link = getTechLink(tech.id, tech.name);
           return `<a href="${link}" target="_blank" rel="noopener noreferrer"><img src="${iconUrl}" alt="${tech.name}" width="${iconSize}" height="${iconSize}" /></a>`;
         })
         .join(" ");
 
-      markdown = `<p align="center">${icons}</p>`;
+      markdown = `<p align="center">\n  ${icons}\n</p>`;
     }
 
     setGeneratedMarkdown(markdown);
@@ -83,8 +84,8 @@ export default function IconGridGenerator({
   const copyToClipboard = () => {
     if (!generatedMarkdown) {
       toast({
-        title: "Markdownが生成されていません",
-        description: "先に「Generate」ボタンを押してください",
+        title: "No Markdown generated",
+        description: "Please click the Generate button first",
         variant: "destructive",
       });
       return;
@@ -95,13 +96,13 @@ export default function IconGridGenerator({
       .then(() => {
         toast({
           title: "Copied to clipboard",
-          description: "Markdownがクリップボードにコピーされました",
+          description: "Markdown has been copied to clipboard",
         });
       })
       .catch(() => {
         toast({
           title: "Copy failed",
-          description: "もう一度お試しください",
+          description: "Please try again",
           variant: "destructive",
         });
       });
@@ -148,15 +149,6 @@ export default function IconGridGenerator({
           <div className="flex flex-row gap-2 justify-between">
             <div className="flex flex-row gap-2 items-center">
               <div className="text-sm">Preview</div>
-              <Switch
-                id="theme-switch"
-                checked={theme === "dark"}
-                uncheckedIcon={<Sun />}
-                checkedIcon={<Moon />}
-                onCheckedChange={() =>
-                  setTheme(theme === "dark" ? "light" : "dark")
-                }
-              />
               {outputFormat === "single" && (
                 <Combobox
                   items={[
@@ -193,7 +185,6 @@ export default function IconGridGenerator({
             <div className="min-h-20 p-3 flex items-center justify-center border rounded-lg bg-muted">
               <TechIconGrid
                 iconIds={selectedIconIds}
-                theme={theme}
                 perLine={perLine}
               />
             </div>
@@ -223,21 +214,10 @@ export default function IconGridGenerator({
               <div className="space-y-4 mt-4">
                 <div className="border rounded-lg p-4 bg-muted">
                   <div className="text-sm font-medium mb-2">Preview:</div>
-                  {outputFormat === "single" ? (
-                    <div className="flex items-center justify-center">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={generatedMarkdown.match(/\(([^)]+)\)/)?.[1] || ""}
-                        alt={title}
-                        className="max-w-full h-auto"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      dangerouslySetInnerHTML={{ __html: generatedMarkdown }}
-                      className="flex items-center justify-center [&_a]:inline-block"
-                    />
-                  )}
+                  <div
+                    dangerouslySetInnerHTML={{ __html: generatedMarkdown }}
+                    className="flex items-center justify-center [&_a]:inline-block"
+                  />
                 </div>
                 <div className="flex items-center space-x-2">
                   <Input

@@ -1,14 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-// 既存のconstantsファイルを読み込み
 const constantsPath = path.join(__dirname, '../src/constants/index.ts');
 const enumsPath = path.join(__dirname, '../src/enums/index.ts');
 
 const constantsContent = fs.readFileSync(constantsPath, 'utf-8');
 const enumsContent = fs.readFileSync(enumsPath, 'utf-8');
 
-// SkillIconsId enumから文字列値を抽出
 const idMap = {};
 const enumMatches = enumsContent.matchAll(/(\w+)\s*=\s*"([^"]+)"/g);
 for (const match of enumMatches) {
@@ -17,7 +15,6 @@ for (const match of enumMatches) {
 
 console.log(`Loaded ${Object.keys(idMap).length} enum mappings`);
 
-// 配列部分を抽出
 const arrayMatch = constantsContent.match(/SKILL_ICONS_LIST:\s*TechSchema\[\]\s*=\s*\[([\s\S]+)\];/);
 if (!arrayMatch) {
   console.error('Failed to extract array');
@@ -26,10 +23,8 @@ if (!arrayMatch) {
 
 const arrayContent = arrayMatch[1];
 
-// オブジェクトを抽出（複数行対応・柔軟な空白処理）
 const techItems = [];
 
-// 改良版正規表現: 改行を含む場合も対応
 const objectRegex = /\{\s*id:\s*SkillIconsId\.(\w+)\s*,\s*name:\s*"([^"]+)"\s*,\s*category:\s*TechCategory\.(\w+)\s*\}/gs;
 
 let match;
@@ -52,7 +47,6 @@ if (techItems.length < 200) {
   console.error(`❌ Expected ~236 items but got ${techItems.length}`);
   console.log('\nTrying alternative parsing method...\n');
 
-  // 代替方法: 行ごとに処理
   const lines = arrayContent.split('\n');
   const altItems = [];
   let currentItem = {};
@@ -67,7 +61,6 @@ if (techItems.length < 200) {
     if (catMatch) {
       currentItem.category = catMatch[1].toLowerCase();
 
-      // アイテム完成
       if (currentItem.enumKey && currentItem.name) {
         const id = idMap[currentItem.enumKey];
         if (id) {
@@ -95,7 +88,6 @@ console.log(`\n📊 Final count: ${techItems.length} items`);
 console.log('First 3:', JSON.stringify(techItems.slice(0, 3), null, 2));
 console.log('Last 3:', JSON.stringify(techItems.slice(-3), null, 2));
 
-// カテゴリの大文字変換
 const capitalizeCategory = (cat) => {
   const mapping = {
     'language': 'Language',
@@ -111,19 +103,12 @@ const capitalizeCategory = (cat) => {
   return mapping[cat] || cat;
 };
 
-// ファイル生成
 const itemsString = techItems.map(item =>
   `  { id: "${item.id}", name: "${item.name}", category: TechCategory.${capitalizeCategory(item.category)} }`
 ).join(',\n');
 
 const newContent = `import { TechCategory, type TechItem } from "@/types/tech";
 
-/**
- * 技術スタック一覧
- * Simple Icons / Devicon のIDをベースとした技術項目リスト
- *
- * 合計: ${techItems.length}項目
- */
 export const TECH_STACK_LIST: TechItem[] = [
 ${itemsString}
 ];

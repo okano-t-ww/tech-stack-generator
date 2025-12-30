@@ -1,30 +1,23 @@
 "use client";
 
-import { Icon } from "@iconify/react";
 import { getIconifyIcon } from "@/lib/iconMapping";
-import type { IconTheme, PerLine } from "@/types/tech";
+import type { PerLine } from "@/types/tech";
 
 interface TechIconGridProps {
-  /** アイコンIDの配列 */
   iconIds: string[];
-  /** アイコンサイズ (px) */
   size?: number;
-  /** テーマ */
-  theme?: IconTheme;
-  /** 1行あたりのアイコン数 */
   perLine?: PerLine;
 }
 
 export default function TechIconGrid({
   iconIds,
   size = 48,
-  theme = "dark",
   perLine = 10,
 }: TechIconGridProps) {
   if (iconIds.length === 0) {
     return (
       <div className="flex items-center justify-center h-20 text-muted-foreground">
-        アイコンを選択してください
+        Please select icons
       </div>
     );
   }
@@ -38,17 +31,18 @@ export default function TechIconGrid({
     >
       {iconIds.map((iconId) => {
         const iconifyIcon = getIconifyIcon(iconId);
+        const iconUrl = `https://api.iconify.design/${iconifyIcon}.svg?width=${size}&height=${size}`;
         return (
           <div
             key={iconId}
             className="flex items-center justify-center transition-transform hover:scale-110"
             style={{ width: size, height: size }}
           >
-            <Icon
-              icon={iconifyIcon}
+            <img
+              src={iconUrl}
+              alt={iconId}
               width={size}
               height={size}
-              className={theme === "dark" ? "text-white" : "text-gray-900"}
             />
           </div>
         );

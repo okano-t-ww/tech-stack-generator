@@ -1,6 +1,5 @@
 const simpleIcons = require('simple-icons');
 
-// Skill Icons IDからSimple Icons IDへのマッピングテスト
 const skillIconsIds = [
   "ableton", "activitypub", "actix", "adonis", "ae", "alpinejs", "anaconda",
   "androidstudio", "angular", "ansible", "apollo", "apple", "appwrite", "arch",
@@ -41,18 +40,15 @@ const results = {
   mapping: {}
 };
 
-// Simple Iconsの全キー取得（siプレフィックス付き）
 const allSimpleIconsKeys = Object.keys(simpleIcons).filter(key => key.startsWith('si'));
 
 skillIconsIds.forEach(id => {
-  // 様々なパターンでマッチング試行
   const patterns = [
-    `si${id.charAt(0).toUpperCase()}${id.slice(1)}`, // siReact
-    `si${id.toUpperCase()}`, // siAWS
-    `si${id}`, // silua
+    `si${id.charAt(0).toUpperCase()}${id.slice(1)}`,
+    `si${id.toUpperCase()}`,
+    `si${id}`,
   ];
 
-  // 特殊ケースのマッピング
   const specialCases = {
     'nodejs': 'siNodedotjs',
     'nextjs': 'siNextdotjs',
@@ -95,7 +91,6 @@ skillIconsIds.forEach(id => {
   }
 
   if (!found) {
-    // 部分一致で検索
     const fuzzyMatch = allSimpleIconsKeys.find(key =>
       key.toLowerCase().includes(id.toLowerCase())
     );
@@ -124,7 +119,6 @@ Object.entries(results.mapping).slice(0, 20).forEach(([skill, simple]) => {
   console.log(`  ${skill} → ${simple}`);
 });
 
-// JSONファイルとして出力
 const fs = require('fs');
 fs.writeFileSync(
   __dirname + '/icon-mapping.json',

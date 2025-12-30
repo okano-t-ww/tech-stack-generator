@@ -1,11 +1,5 @@
 import { TechCategory, type TechItem } from "@/types/tech";
 
-/**
- * 技術スタック一覧
- * Simple Icons / Devicon のIDをベースとした技術項目リスト
- *
- * 合計: 236項目
- */
 export const TECH_STACK_LIST: TechItem[] = [
   { id: "ableton", name: "Ableton Live", category: TechCategory.Other },
   { id: "activitypub", name: "ActivityPub", category: TechCategory.Other },
@@ -78,7 +72,6 @@ export const TECH_STACK_LIST: TechItem[] = [
   { id: "firebase", name: "Firebase", category: TechCategory.Cloud },
   { id: "flask", name: "Flask", category: TechCategory.Framework },
   { id: "flutter", name: "Flutter", category: TechCategory.Framework },
-  { id: "forth", name: "Forth", category: TechCategory.Language },
   { id: "fortran", name: "Fortran", category: TechCategory.Language },
   { id: "gamemakerstudio", name: "GameMaker Studio", category: TechCategory.Platform },
   { id: "gatsby", name: "Gatsby", category: TechCategory.Framework },
@@ -88,7 +81,6 @@ export const TECH_STACK_LIST: TechItem[] = [
   { id: "githubactions", name: "GitHub Actions", category: TechCategory.CICD },
   { id: "gitlab", name: "GitLab", category: TechCategory.Other },
   { id: "gmail", name: "Gmail", category: TechCategory.Other },
-  { id: "gherkin", name: "Gherkin", category: TechCategory.Language },
   { id: "go", name: "Go", category: TechCategory.Language },
   { id: "gradle", name: "Gradle", category: TechCategory.BuildTool },
   { id: "godot", name: "Godot Engine", category: TechCategory.Platform },
