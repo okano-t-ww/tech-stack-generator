@@ -1,7 +1,7 @@
 export const iconMapping: Record<string, string> = {
   // A
   ableton: "devicon:ableton",
-  activitypub: "logos:activitypub",
+  activitypub: "simple-icons:activitypub",
   actix: "simple-icons:actix",
   adonis: "logos:adonisjs-icon",
   ae: "simple-icons:adobeaftereffects",
@@ -19,7 +19,7 @@ export const iconMapping: Record<string, string> = {
   astro: "logos:astro-icon",
   atom: "logos:atom",
   au: "simple-icons:adobeaudition",
-  autocad: "logos:autodesk",
+  autocad: "simple-icons:autocad",
   aws: "devicon:amazonwebservices",
   azul: "logos:azul",
   azure: "devicon:azure",
@@ -39,7 +39,7 @@ export const iconMapping: Record<string, string> = {
   cs: "logos:c-sharp",
   cpp: "logos:c-plusplus",
   crystal: "logos:crystal",
-  cassandra: "logos:apachecassandra",
+  cassandra: "simple-icons:apachecassandra",
   clion: "logos:clion",
   clojure: "logos:clojure",
   cloudflare: "logos:cloudflare",
@@ -84,12 +84,12 @@ export const iconMapping: Record<string, string> = {
   // G
   gamemakerstudio: "simple-icons:gamemaker",
   gatsby: "logos:gatsby",
-  gcp: "logos:googlecloud",
+  gcp: "simple-icons:googlecloud",
   git: "logos:git-icon",
   github: "logos:github-icon",
-  githubactions: "logos:githubactions",
+  githubactions: "simple-icons:githubactions",
   gitlab: "logos:gitlab-icon",
-  gmail: "logos:gmail",
+  gmail: "simple-icons:gmail",
   go: "logos:go",
   gradle: "logos:gradle",
   godot: "simple-icons:godotengine",
@@ -110,7 +110,7 @@ export const iconMapping: Record<string, string> = {
   idea: "simple-icons:intellijidea",
   ai: "simple-icons:adobeillustrator",
   instagram: "logos:instagram",
-  ipfs: "logos:ipfs",
+  ipfs: "simple-icons:ipfs",
 
   // J
   java: "logos:java",
@@ -120,7 +120,7 @@ export const iconMapping: Record<string, string> = {
   jquery: "logos:jquery",
 
   // K
-  kafka: "logos:apachekafka",
+  kafka: "simple-icons:apachekafka",
   kali: "simple-icons:kalilinux",
   kotlin: "logos:kotlin",
   ktor: "logos:ktor",
@@ -128,7 +128,7 @@ export const iconMapping: Record<string, string> = {
 
   // L
   laravel: "logos:laravel",
-  latex: "logos:latex",
+  latex: "simple-icons:latex",
   less: "logos:less",
   linkedin: "devicon:linkedin",
   linux: "simple-icons:linux",
@@ -140,9 +140,9 @@ export const iconMapping: Record<string, string> = {
   mastodon: "logos:mastodon",
   materialui: "simple-icons:mui",
   matlab: "devicon:matlab",
-  maven: "logos:apachemaven",
+  maven: "simple-icons:apachemaven",
   mint: "simple-icons:linuxmint",
-  misskey: "logos:misskey",
+  misskey: "simple-icons:misskey",
   mongodb: "logos:mongodb-icon",
   mysql: "logos:mysql",
 
@@ -163,7 +163,7 @@ export const iconMapping: Record<string, string> = {
   obsidian: "logos:obsidian",
   ocaml: "logos:ocaml",
   octave: "simple-icons:octave",
-  opencv: "logos:opencv",
+  opencv: "simple-icons:opencv",
   openshift: "logos:redhatopenshift",
   openstack: "logos:openstack",
 
@@ -197,7 +197,7 @@ export const iconMapping: Record<string, string> = {
   r: "logos:r-lang",
   rabbitmq: "logos:rabbitmq",
   rails: "logos:rails",
-  raspberrypi: "logos:raspberrypi",
+  raspberrypi: "simple-icons:raspberrypi",
   react: "logos:react",
   reactivex: "logos:reactivex",
   redhat: "logos:redhat",
@@ -255,10 +255,10 @@ export const iconMapping: Record<string, string> = {
   vercel: "logos:vercel-icon",
   vim: "logos:vim",
   visualstudio: "devicon:visualstudio",
-  vite: "logos:vite",
+  vite: "simple-icons:vite",
   vitest: "logos:vitest",
   vscode: "devicon:vscode",
-  vscodium: "logos:vscodium",
+  vscodium: "simple-icons:vscodium",
   vue: "logos:vue",
   vuetify: "simple-icons:vuetify",
 
@@ -270,7 +270,7 @@ export const iconMapping: Record<string, string> = {
   windicss: "simple-icons:windicss",
   windows: "simple-icons:windows",
   wordpress: "logos:wordpress",
-  workers: "logos:cloudflareworkers",
+  workers: "simple-icons:cloudflareworkers",
 
   // X-Y-Z
   xd: "simple-icons:adobexd",
