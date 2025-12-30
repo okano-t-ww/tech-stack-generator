@@ -1,11 +1,9 @@
 export const iconMapping: Record<string, string> = {
   // A
-  ableton: "devicon:ableton",
   activitypub: "simple-icons:activitypub",
   actix: "simple-icons:actix",
   adonis: "logos:adonisjs-icon",
   ae: "simple-icons:adobeaftereffects",
-  aiscript: "logos:aiscript",
   alpinejs: "logos:alpinejs-icon",
   anaconda: "simple-icons:anaconda",
   androidstudio: "simple-icons:androidstudio",

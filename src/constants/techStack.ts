@@ -1,12 +1,10 @@
 import { TechCategory, type TechItem } from "@/types/tech";
 
 export const TECH_STACK_LIST: TechItem[] = [
-  { id: "ableton", name: "Ableton Live", category: TechCategory.Other },
   { id: "activitypub", name: "ActivityPub", category: TechCategory.Other },
   { id: "actix", name: "Actix", category: TechCategory.Framework },
   { id: "adonis", name: "AdonisJS", category: TechCategory.Framework },
   { id: "ae", name: "Adobe After Effects", category: TechCategory.Other },
-  { id: "aiscript", name: "AI Script", category: TechCategory.Other },
   { id: "alpinejs", name: "Alpine.js", category: TechCategory.Framework },
   { id: "anaconda", name: "Anaconda", category: TechCategory.Platform },
   { id: "androidstudio", name: "Android Studio", category: TechCategory.Platform },
