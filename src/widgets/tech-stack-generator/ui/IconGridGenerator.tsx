@@ -5,7 +5,6 @@ import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
 import { toast } from "@/shared/hooks/use-toast";
 import { Copy, Check, CheckSquare, SquareMinus, Square } from "lucide-react";
-import React from "react";
 import { Toggle } from "@/shared/ui/toggle";
 import { Combobox } from "@/shared/ui/components/Combobox";
 import { TooltipIconButton } from "@/shared/ui/components/TooltipIconButton";
@@ -131,14 +130,14 @@ export default function IconGridGenerator({
   };
 
   return (
-    <div className="space-y-6">
-      <div className="space-y-6">
-        <div className="flex items-center gap-3">
-          <h2 className="text-4xl font-bold text-foreground">{title}</h2>
-          <span className="h-1 flex-1 rounded-full bg-gradient-to-r from-primary/30 to-transparent"></span>
+    <div className="space-y-3">
+      <div className="space-y-3">
+        <div className="flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-foreground">{title}</h2>
+          <span className="h-px flex-1 bg-gradient-to-r from-primary/30 to-transparent"></span>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-2">
           <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
             <label className="form-label">Output Format</label>
             <Combobox
@@ -157,8 +156,8 @@ export default function IconGridGenerator({
             />
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:justify-between items-start sm:items-center border-b border-border/30 pb-4">
-            <div className="flex flex-row gap-3 items-center">
+          <div className="flex flex-col sm:flex-row gap-2 sm:justify-between items-start sm:items-center border-b border-border/30 pb-2">
+            <div className="flex flex-row gap-2 items-center">
               <label className="form-label">Preview</label>
               {outputFormat === "single" && (
                 <Combobox
@@ -191,21 +190,20 @@ export default function IconGridGenerator({
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-4">
-          <div className="flex-1 space-y-6">
-            <div className="min-h-28 p-6 flex items-center justify-center border-2 border-dashed border-border/50 rounded-xl bg-gradient-to-b from-muted/20 to-transparent hover:border-primary/30 hover:bg-muted/10 transition-all duration-200">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-3">
+          <div className="flex-1 space-y-3">
+            <div className="min-h-20 p-4 flex items-center justify-center border-2 border-dashed border-border/50 rounded-xl bg-gradient-to-b from-muted/20 to-transparent hover:border-primary/30 hover:bg-muted/10 transition-all duration-200">
               <TechIconGrid
                 iconIds={selectedIconIds}
                 perLine={perLine}
               />
             </div>
 
-            <div className="flex flex-row flex-wrap justify-center mt-4">
+            <div className="flex flex-row flex-wrap justify-center gap-1">
               {filteredTech.map((tech) => (
                 <Toggle
                   key={tech.id}
                   onClick={() => handleTechToggle(tech)}
-                  className="m-1"
                   pressed={selectedTechSet.has(tech.id)}
                 >
                   {tech.name}
@@ -215,7 +213,7 @@ export default function IconGridGenerator({
 
             <Button
               onClick={generateMarkdown}
-              className="w-full mt-8 h-11 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 relative overflow-hidden group"
+              className="w-full h-10 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 relative overflow-hidden group"
               disabled={!selectedTech.length}
             >
               <span className="relative z-10">Generate Markdown</span>
@@ -223,9 +221,9 @@ export default function IconGridGenerator({
             </Button>
 
             {generatedMarkdown && (
-              <div className="space-y-4 mt-6">
-                <div className="border-2 border-primary/20 rounded-xl p-6 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="flex items-center gap-2 mb-4">
+              <div className="space-y-2">
+                <div className="border-2 border-primary/20 rounded-xl p-4 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center gap-2 mb-2">
                     <div className="h-1 w-1 rounded-full bg-primary"></div>
                     <label className="form-label mb-0">Generated Preview</label>
                   </div>
@@ -252,7 +250,7 @@ export default function IconGridGenerator({
             )}
           </div>
 
-          <div className="w-full lg:max-w-sm lg:border-l lg:pl-6 lg:border-border/30">
+          <div className="w-full lg:max-w-sm lg:border-l lg:pl-4 lg:border-border/30">
             <DndList
               items={selectedTech}
               setItems={setSelectedTech}

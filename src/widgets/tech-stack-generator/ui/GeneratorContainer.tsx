@@ -70,16 +70,14 @@ export default function GeneratorContainer() {
   ];
 
   return (
-    <div className="w-full min-h-screen px-4 sm:px-6 md:max-w-6xl md:mx-auto py-6 md:py-8 space-y-6 md:space-y-8">
-      <div className="space-y-4">
-        <Input
-          id="techs"
-          placeholder="Search technologies..."
-          onChange={handleSearchTech}
-          className="h-11 text-base"
-        />
-      </div>
-      <div className="space-y-6">
+    <div className="w-full min-h-screen px-4 sm:px-6 md:max-w-6xl md:mx-auto py-3 md:py-4 space-y-3">
+      <Input
+        id="techs"
+        placeholder="Search technologies..."
+        onChange={handleSearchTech}
+        className="h-9 text-sm"
+      />
+      <div className="space-y-3">
         <Tabs defaultValue={generatorPropsList[0].title}>
           <ScrollArea className="whitespace-nowrap pb-3 rounded-md">
             <TabsList className="w-full">

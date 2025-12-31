@@ -19,10 +19,10 @@ const TechIconGrid = React.memo(function TechIconGrid({
 }: TechIconGridProps) {
   if (iconIds.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-24 py-6 text-muted-foreground gap-3">
-        <div className="w-12 h-12 rounded-lg bg-muted/40 flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center min-h-16 py-3 text-muted-foreground gap-2">
+        <div className="w-10 h-10 rounded-lg bg-muted/40 flex items-center justify-center">
           <svg
-            className="w-6 h-6 text-muted-foreground/50"
+            className="w-5 h-5 text-muted-foreground/50"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -36,8 +36,8 @@ const TechIconGrid = React.memo(function TechIconGrid({
           </svg>
         </div>
         <div className="text-center">
-          <p className="font-medium text-foreground/70">No technologies selected</p>
-          <p className="text-xs text-muted-foreground mt-1">
+          <p className="text-sm font-medium text-foreground/70">No technologies selected</p>
+          <p className="text-xs text-muted-foreground">
             Select items below to preview them here
           </p>
         </div>
