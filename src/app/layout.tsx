@@ -4,8 +4,8 @@ import "./globals.css";
 import { Toaster } from "@/shared/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/features/theme/ThemeProvider";
-import Header from "@/widgets/layout/Header";
-import Footer from "@/widgets/layout/Footer";
+import Header from "@/features/layout/Header";
+import Footer from "@/features/layout/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

@@ -34,28 +34,39 @@ export default function GeneratorContainer() {
       categories: [TechCategory.Language],
     },
     {
-      title: "Frameworks | Libraries",
+      title: "Frameworks & Libraries",
       techList: filteredTech,
       categories: [TechCategory.Framework, TechCategory.Library],
     },
     {
-      title: "Platforms",
+      title: "Platforms & Cloud",
       techList: filteredTech,
-      categories: [TechCategory.Platform],
+      categories: [TechCategory.Platform, TechCategory.Cloud],
     },
     {
-      title: "Cloud",
+      title: "Databases",
       techList: filteredTech,
-      categories: [TechCategory.Cloud],
+      categories: [TechCategory.Database],
     },
     {
-      title: "Database | CI/CD | BuildTool",
+      title: "DevOps & Build Tools",
       techList: filteredTech,
       categories: [
-        TechCategory.Database,
         TechCategory.CICD,
         TechCategory.BuildTool,
+        TechCategory.Testing,
+        TechCategory.Monitoring,
       ],
+    },
+    {
+      title: "Design & Editors",
+      techList: filteredTech,
+      categories: [TechCategory.Design, TechCategory.Editor],
+    },
+    {
+      title: "Message Queues",
+      techList: filteredTech,
+      categories: [TechCategory.MessageQueue],
     },
     {
       title: "Other",
@@ -70,11 +81,18 @@ export default function GeneratorContainer() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-8">
-      <div className="space-y-4">
-        <Input id="techs" placeholder="Search" onChange={handleSearchTech} />
+    <div className="w-full min-h-screen">
+      {/* Floating Search Input */}
+      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border/40 px-4 sm:px-6 lg:px-8 py-3">
+        <Input
+          id="techs"
+          placeholder="Search technologies..."
+          onChange={handleSearchTech}
+          className="h-9 text-sm max-w-md"
+        />
       </div>
-      <div className="space-y-4">
+
+      <div className="px-4 sm:px-6 lg:px-8 py-3 md:py-4 space-y-3">
         <Tabs defaultValue={generatorPropsList[0].title}>
           <ScrollArea className="whitespace-nowrap pb-3 rounded-md">
             <TabsList className="w-full">
@@ -94,7 +112,7 @@ export default function GeneratorContainer() {
             const { title } = props;
             return (
               <TabsContent key={title} value={title}>
-                <div className="p-4 border rounded-lg">
+                <div className="card-section">
                   <IconGridGenerator key={title} {...props} />
                 </div>
               </TabsContent>
