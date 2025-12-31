@@ -70,7 +70,7 @@ export default function GeneratorContainer() {
   ];
 
   return (
-    <div className="w-full min-h-screen px-4 sm:px-6 md:max-w-6xl md:mx-auto py-3 md:py-4 space-y-3">
+    <div className="w-full min-h-screen px-4 sm:px-6 lg:px-8 py-3 md:py-4 space-y-3">
       <Input
         id="techs"
         placeholder="Search technologies..."

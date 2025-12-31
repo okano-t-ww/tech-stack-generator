@@ -191,7 +191,7 @@ export default function IconGridGenerator({
 
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-3">
           {/* Left Column: Tech Selection Toggles */}
-          <div className="xl:col-span-3 space-y-2">
+          <div className="xl:col-span-2 space-y-2">
             <label className="form-label">Select Technologies</label>
             <div className="flex flex-row flex-wrap gap-1 max-h-[600px] overflow-y-auto p-2 border border-border/30 rounded-lg bg-muted/20">
               {filteredTech.map((tech) => (
@@ -208,7 +208,7 @@ export default function IconGridGenerator({
           </div>
 
           {/* Center Column: Preview with DnD */}
-          <div className="xl:col-span-5 space-y-2">
+          <div className="xl:col-span-7 space-y-2">
             <label className="form-label">Preview & Reorder</label>
             <div className="min-h-[400px] p-4 border-2 border-dashed border-border/50 rounded-xl bg-gradient-to-b from-muted/20 to-transparent">
               <TechIconGrid
@@ -229,7 +229,7 @@ export default function IconGridGenerator({
           </div>
 
           {/* Right Column: Generated Output */}
-          <div className="xl:col-span-4 space-y-2">
+          <div className="xl:col-span-3 space-y-2">
             <label className="form-label">Generated Markdown</label>
             {generatedMarkdown ? (
               <div className="space-y-2">
