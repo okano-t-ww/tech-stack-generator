@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source "../node_modules/streamdown/dist/*.js";
 
 @layer base {
   :root {
@@ -139,4 +140,36 @@
   .animate-accordion-up {
     animation: accordion-up 0.2s ease-out;
   }
+}
+
+/* Markdown preview custom styles */
+.markdown-preview h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: hsl(var(--foreground));
+}
+
+.markdown-preview p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.markdown-preview a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.markdown-preview img {
+  margin: 0;
+  display: inline-block;
+}
+
+/* Fix streamdown image wrapper div inside p tag */
+.markdown-preview [data-streamdown="image-wrapper"] {
+  display: inline-flex;
+  align-items: center;
 }
