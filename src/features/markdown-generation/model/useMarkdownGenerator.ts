@@ -1,6 +1,5 @@
 import { useState, useCallback } from 'react';
 import * as MarkdownService from './MarkdownService';
-import type { OutputFormat } from './MarkdownService';
 import type { TechItem, IconSize } from '@/entities/tech/model/types';
 
 /**
@@ -10,26 +9,18 @@ import type { TechItem, IconSize } from '@/entities/tech/model/types';
  */
 export function useMarkdownGenerator() {
   const [markdown, setMarkdown] = useState<string>('');
-  const [outputFormat, setOutputFormat] = useState<OutputFormat>('single');
 
   /**
    * Markdownを生成
    */
   const generate = useCallback(
     (selectedTechs: readonly TechItem[], iconSize: IconSize = 48 as IconSize) => {
-      const result = MarkdownService.generate(selectedTechs, outputFormat, iconSize);
+      const result = MarkdownService.generate(selectedTechs, iconSize);
       setMarkdown(result);
       return result;
     },
-    [outputFormat]
+    []
   );
-
-  /**
-   * 出力形式を変更
-   */
-  const changeFormat = useCallback((format: OutputFormat) => {
-    setOutputFormat(format);
-  }, []);
 
   /**
    * Markdownをクリア
@@ -56,9 +47,7 @@ export function useMarkdownGenerator() {
 
   return {
     markdown,
-    outputFormat,
     generate,
-    changeFormat,
     clear,
     copyToClipboard,
     hasMarkdown: markdown.length > 0,

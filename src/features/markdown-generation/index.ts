@@ -5,5 +5,4 @@
  */
 
 export * as MarkdownService from './model/MarkdownService';
-export type { OutputFormat } from './model/MarkdownService';
 export { useMarkdownGenerator } from './model/useMarkdownGenerator';

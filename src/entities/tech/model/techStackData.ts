@@ -1705,18 +1705,5 @@ export const TECH_STACK = {
   }
 } as const satisfies Record<string, TechItem>;
 
-// Type-safe tech ID list
-export const TECH_IDS = Object.keys(TECH_STACK) as TechId[];
-
 // Array format for backward compatibility
 export const TECH_STACK_LIST: TechItem[] = Object.values(TECH_STACK);
-
-// Type-safe getter with Record cast for indexing
-export function getTechById(id: TechId): TechItem {
-  return (TECH_STACK as Record<string, TechItem>)[id];
-}
-
-// Safe getter with validation
-export function getTechByIdSafe(id: string): TechItem | undefined {
-  return (TECH_STACK as Record<string, TechItem>)[id];
-}
