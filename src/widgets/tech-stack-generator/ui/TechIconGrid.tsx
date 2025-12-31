@@ -1,6 +1,8 @@
 "use client";
 
+import React from "react";
 import { TECH_STACK } from "@/entities/tech";
+import { IconImage } from "@/shared/ui/components/IconImage";
 
 type PerLine = 5 | 6 | 7 | 8 | 9 | 10;
 
@@ -10,15 +12,18 @@ interface TechIconGridProps {
   perLine?: PerLine;
 }
 
-export default function TechIconGrid({
+const TechIconGrid = React.memo(function TechIconGrid({
   iconIds,
   size = 48,
   perLine = 10,
 }: TechIconGridProps) {
   if (iconIds.length === 0) {
     return (
-      <div className="flex items-center justify-center h-20 text-muted-foreground">
-        Please select icons
+      <div className="flex flex-col items-center justify-center h-20 text-muted-foreground gap-2">
+        <p>No icons selected</p>
+        <p className="text-xs">
+          Click any technology below to add it to the preview
+        </p>
       </div>
     );
   }
@@ -35,20 +40,16 @@ export default function TechIconGrid({
         const iconifyIcon = tech?.iconify || `logos:${iconId}`;
         const iconUrl = `https://api.iconify.design/${iconifyIcon}.svg?width=${size}&height=${size}`;
         return (
-          <div
+          <IconImage
             key={iconId}
-            className="flex items-center justify-center transition-transform hover:scale-110"
-            style={{ width: size, height: size }}
-          >
-            <img
-              src={iconUrl}
-              alt={tech?.name || iconId}
-              width={size}
-              height={size}
-            />
-          </div>
+            src={iconUrl}
+            alt={tech?.name || iconId}
+            size={size}
+          />
         );
       })}
     </div>
   );
-}
+});
+
+export default TechIconGrid;

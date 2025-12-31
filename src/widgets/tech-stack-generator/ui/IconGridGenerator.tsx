@@ -1,10 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
 import { toast } from "@/shared/hooks/use-toast";
-import { Copy, CheckSquare, SquareMinus, Square } from "lucide-react";
+import { Copy, Check, CheckSquare, SquareMinus, Square } from "lucide-react";
 import React from "react";
 import { Toggle } from "@/shared/ui/toggle";
 import { Combobox } from "@/shared/ui/components/Combobox";
@@ -32,12 +32,16 @@ export default function IconGridGenerator({
   const [perLine, setPerLine] = useState<PerLine>(10);
   const [generatedMarkdown, setGeneratedMarkdown] = useState<string>("");
   const [outputFormat, setOutputFormat] = useState<OutputFormat>("single");
+  const [isCopied, setIsCopied] = useState(false);
 
   const filteredTech = techList.filter((tech) =>
     categories.includes(tech.category)
   );
 
-  const getSelectAllIcon = useMemo(() => {
+  // Performance: O(1) lookup instead of O(n) - keep this optimization
+  const selectedTechSet = new Set(selectedTech.map((tech) => tech.id));
+
+  const getSelectAllIcon = () => {
     switch (selectedTech.length) {
       case 0:
         return Square;
@@ -46,7 +50,7 @@ export default function IconGridGenerator({
       default:
         return SquareMinus;
     }
-  }, [selectedTech.length, filteredTech.length]);
+  };
 
   const selectedIconIds = selectedTech.map((tech) => tech.id);
 
@@ -96,6 +100,8 @@ export default function IconGridGenerator({
     navigator.clipboard
       .writeText(generatedMarkdown)
       .then(() => {
+        setIsCopied(true);
+        setTimeout(() => setIsCopied(false), 2000);
         toast({
           title: "Copied to clipboard",
           description: "Markdown has been copied to clipboard",
@@ -175,7 +181,7 @@ export default function IconGridGenerator({
             <div>
               <TooltipIconButton
                 onClick={handleSelectAll}
-                icon={getSelectAllIcon}
+                icon={getSelectAllIcon()}
                 tooltipText="Select All"
               />
             </div>
@@ -197,7 +203,7 @@ export default function IconGridGenerator({
                   key={tech.id}
                   onClick={() => handleTechToggle(tech)}
                   className="m-1"
-                  pressed={selectedTech.some((item) => item.id === tech.id)}
+                  pressed={selectedTechSet.has(tech.id)}
                 >
                   {tech.name}
                 </Toggle>
@@ -228,7 +234,11 @@ export default function IconGridGenerator({
                     className="font-mono text-sm"
                   />
                   <Button size="icon" onClick={copyToClipboard}>
-                    <Copy className="h-4 w-4" />
+                    {isCopied ? (
+                      <Check className="h-4 w-4" />
+                    ) : (
+                      <Copy className="h-4 w-4" />
+                    )}
                   </Button>
                 </div>
               </div>
