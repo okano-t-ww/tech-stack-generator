@@ -20,11 +20,18 @@ export const useIconGridGenerator = ({
   const [generatedMarkdown, setGeneratedMarkdown] = useState<string>("");
   const [isCopied, setIsCopied] = useState(false);
   const [includeTitle, setIncludeTitle] = useState(true);
+  const [searchKeyword, setSearchKeyword] = useState("");
 
-  const filteredTech = useMemo(
-    () => techList.filter((tech) => categories.includes(tech.category)),
-    [techList, categories]
-  );
+  const filteredTech = useMemo(() => {
+    const categoryFiltered = techList.filter((tech) =>
+      categories.includes(tech.category)
+    );
+    if (!searchKeyword) return categoryFiltered;
+    const keyword = searchKeyword.toLowerCase();
+    return categoryFiltered.filter((tech) =>
+      tech.name.toLowerCase().includes(keyword)
+    );
+  }, [techList, categories, searchKeyword]);
 
   const selectedTechSet = useMemo(
     () => new Set(selectedTech.map((tech) => tech.id)),
@@ -109,6 +116,8 @@ export const useIconGridGenerator = ({
     isCopied,
     includeTitle,
     setIncludeTitle,
+    searchKeyword,
+    setSearchKeyword,
     // Computed
     filteredTech,
     selectedTechSet,

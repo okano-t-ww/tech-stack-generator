@@ -27,6 +27,8 @@ export default function IconGridGenerator({
     isCopied,
     includeTitle,
     setIncludeTitle,
+    searchKeyword,
+    setSearchKeyword,
     filteredTech,
     selectedTechSet,
     selectedIconIds,
@@ -61,6 +63,8 @@ export default function IconGridGenerator({
             onTechToggle={handleTechToggle}
             onSelectAll={handleSelectAll}
             selectedCount={selectedTech.length}
+            searchKeyword={searchKeyword}
+            onSearchChange={setSearchKeyword}
           />
 
           {/* Center Column: Preview with DnD */}

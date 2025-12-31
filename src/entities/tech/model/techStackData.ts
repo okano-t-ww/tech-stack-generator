@@ -1474,6 +1474,234 @@ export const TECH_STACK = {
     name: "Zig",
     category: TechCategory.Language,
     iconify: "logos:zig",
+  },
+  "gleam": {
+    id: "gleam",
+    name: "Gleam",
+    category: TechCategory.Language,
+    iconify: "logos:gleam"
+  },
+  "elm": {
+    id: "elm",
+    name: "Elm",
+    category: TechCategory.Language,
+    iconify: "logos:elm"
+  },
+  "erlang": {
+    id: "erlang",
+    name: "Erlang",
+    category: TechCategory.Language,
+    iconify: "logos:erlang"
+  },
+  "qwik": {
+    id: "qwik",
+    name: "Qwik",
+    category: TechCategory.Framework,
+    iconify: "logos:qwik"
+  },
+  "preact": {
+    id: "preact",
+    name: "Preact",
+    category: TechCategory.Framework,
+    iconify: "logos:preact"
+  },
+  "analog": {
+    id: "analog",
+    name: "Analog",
+    category: TechCategory.Framework,
+    iconify: "logos:analog"
+  },
+  "hono": {
+    id: "hono",
+    name: "Hono",
+    category: TechCategory.Framework,
+    iconify: "logos:hono"
+  },
+  "mariadb": {
+    id: "mariadb",
+    name: "MariaDB",
+    category: TechCategory.Database,
+    iconify: "logos:mariadb"
+  },
+  "neo4j": {
+    id: "neo4j",
+    name: "Neo4j",
+    category: TechCategory.Database,
+    iconify: "devicon:neo4j"
+  },
+  "influxdb": {
+    id: "influxdb",
+    name: "InfluxDB",
+    category: TechCategory.Database,
+    iconify: "logos:influxdb"
+  },
+  "neon": {
+    id: "neon",
+    name: "Neon",
+    category: TechCategory.Database,
+    iconify: "logos:neon"
+  },
+  "upstash": {
+    id: "upstash",
+    name: "Upstash",
+    category: TechCategory.Database,
+    iconify: "logos:upstash"
+  },
+  "digitalocean": {
+    id: "digitalocean",
+    name: "DigitalOcean",
+    category: TechCategory.Cloud,
+    iconify: "devicon:digitalocean"
+  },
+  "fly": {
+    id: "fly",
+    name: "Fly.io",
+    category: TechCategory.Cloud,
+    iconify: "logos:fly"
+  },
+  "cloudflare-workers": {
+    id: "cloudflare-workers",
+    name: "Cloudflare Workers",
+    category: TechCategory.Cloud,
+    iconify: "logos:cloudflare-workers"
+  },
+  "esbuild": {
+    id: "esbuild",
+    name: "esbuild",
+    category: TechCategory.BuildTool,
+    iconify: "logos:esbuild"
+  },
+  "parcel": {
+    id: "parcel",
+    name: "Parcel",
+    category: TechCategory.BuildTool,
+    iconify: "logos:parcel-icon"
+  },
+  "turbopack": {
+    id: "turbopack",
+    name: "Turbopack",
+    category: TechCategory.BuildTool,
+    iconify: "logos:turbopack"
+  },
+  "turborepo": {
+    id: "turborepo",
+    name: "Turborepo",
+    category: TechCategory.BuildTool,
+    iconify: "logos:turborepo-icon"
+  },
+  "nx": {
+    id: "nx",
+    name: "Nx",
+    category: TechCategory.BuildTool,
+    iconify: "logos:nx"
+  },
+  "composer": {
+    id: "composer",
+    name: "Composer",
+    category: TechCategory.BuildTool,
+    iconify: "devicon:composer"
+  },
+  "circleci": {
+    id: "circleci",
+    name: "CircleCI",
+    category: TechCategory.CICD,
+    iconify: "logos:circleci-icon"
+  },
+  "playwright": {
+    id: "playwright",
+    name: "Playwright",
+    category: TechCategory.Testing,
+    iconify: "logos:playwright-icon"
+  },
+  "storybook": {
+    id: "storybook",
+    name: "Storybook",
+    category: TechCategory.Testing,
+    iconify: "logos:storybook-icon"
+  },
+  "testinglibrary": {
+    id: "testinglibrary",
+    name: "Testing Library",
+    category: TechCategory.Testing,
+    iconify: "logos:testing-library"
+  },
+  "pytest": {
+    id: "pytest",
+    name: "pytest",
+    category: TechCategory.Testing,
+    iconify: "devicon:pytest"
+  },
+  "mocha": {
+    id: "mocha",
+    name: "Mocha",
+    category: TechCategory.Testing,
+    iconify: "logos:mocha"
+  },
+  "trpc": {
+    id: "trpc",
+    name: "tRPC",
+    category: TechCategory.Library,
+    iconify: "logos:trpc"
+  },
+  "mobx": {
+    id: "mobx",
+    name: "MobX",
+    category: TechCategory.Library,
+    iconify: "devicon:mobx"
+  },
+  "jotai": {
+    id: "jotai",
+    name: "Jotai",
+    category: TechCategory.Library,
+    iconify: "logos:jotai"
+  },
+  "drizzle": {
+    id: "drizzle",
+    name: "Drizzle ORM",
+    category: TechCategory.Library,
+    iconify: "logos:drizzle"
+  },
+  "payload": {
+    id: "payload",
+    name: "Payload CMS",
+    category: TechCategory.Other,
+    iconify: "logos:payload"
+  },
+  "sanity": {
+    id: "sanity",
+    name: "Sanity",
+    category: TechCategory.Other,
+    iconify: "logos:sanity-icon"
+  },
+  "strapi": {
+    id: "strapi",
+    name: "Strapi",
+    category: TechCategory.Other,
+    iconify: "logos:strapi-icon"
+  },
+  "auth0": {
+    id: "auth0",
+    name: "Auth0",
+    category: TechCategory.Other,
+    iconify: "logos:auth0-icon"
+  },
+  "datadog": {
+    id: "datadog",
+    name: "Datadog",
+    category: TechCategory.Monitoring,
+    iconify: "logos:datadog"
+  },
+  "openai": {
+    id: "openai",
+    name: "OpenAI",
+    category: TechCategory.Other,
+    iconify: "logos:openai-icon"
+  },
+  "anthropic": {
+    id: "anthropic",
+    name: "Anthropic",
+    category: TechCategory.Other,
+    iconify: "logos:anthropic"
   }
 } as const satisfies Record<string, TechItem>;
 
