@@ -9,7 +9,6 @@ import { Toggle } from "@/shared/ui/toggle";
 import { Combobox } from "@/shared/ui/components/Combobox";
 import { TooltipIconButton } from "@/shared/ui/components/TooltipIconButton";
 import TechIconGrid from "./TechIconGrid";
-import { DndList } from "@/shared/ui/components/DndList";
 import { TECH_STACK, type TechItem, type TechCategory } from "@/entities/tech";
 
 type PerLine = 5 | 6 | 7 | 8 | 9 | 10;
@@ -190,27 +189,35 @@ export default function IconGridGenerator({
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-4 lg:gap-3">
-          <div className="flex-1 space-y-3">
-            <div className="min-h-20 p-4 flex items-center justify-center border-2 border-dashed border-border/50 rounded-xl bg-gradient-to-b from-muted/20 to-transparent hover:border-primary/30 hover:bg-muted/10 transition-all duration-200">
-              <TechIconGrid
-                iconIds={selectedIconIds}
-                perLine={perLine}
-              />
-            </div>
-
-            <div className="flex flex-row flex-wrap justify-center gap-1">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-3">
+          {/* Left Column: Tech Selection Toggles */}
+          <div className="xl:col-span-3 space-y-2">
+            <label className="form-label">Select Technologies</label>
+            <div className="flex flex-row flex-wrap gap-1 max-h-[600px] overflow-y-auto p-2 border border-border/30 rounded-lg bg-muted/20">
               {filteredTech.map((tech) => (
                 <Toggle
                   key={tech.id}
                   onClick={() => handleTechToggle(tech)}
                   pressed={selectedTechSet.has(tech.id)}
+                  className="text-xs"
                 >
                   {tech.name}
                 </Toggle>
               ))}
             </div>
+          </div>
 
+          {/* Center Column: Preview with DnD */}
+          <div className="xl:col-span-5 space-y-2">
+            <label className="form-label">Preview & Reorder</label>
+            <div className="min-h-[400px] p-4 border-2 border-dashed border-border/50 rounded-xl bg-gradient-to-b from-muted/20 to-transparent">
+              <TechIconGrid
+                iconIds={selectedIconIds}
+                perLine={perLine}
+                selectedTech={selectedTech}
+                setSelectedTech={setSelectedTech}
+              />
+            </div>
             <Button
               onClick={generateMarkdown}
               className="w-full h-10 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 relative overflow-hidden group"
@@ -219,13 +226,17 @@ export default function IconGridGenerator({
               <span className="relative z-10">Generate Markdown</span>
               <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </Button>
+          </div>
 
-            {generatedMarkdown && (
+          {/* Right Column: Generated Output */}
+          <div className="xl:col-span-4 space-y-2">
+            <label className="form-label">Generated Markdown</label>
+            {generatedMarkdown ? (
               <div className="space-y-2">
-                <div className="border-2 border-primary/20 rounded-xl p-4 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <div className="border-2 border-primary/20 rounded-xl p-4 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 shadow-sm">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="h-1 w-1 rounded-full bg-primary"></div>
-                    <label className="form-label mb-0">Generated Preview</label>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Preview</span>
                   </div>
                   <div
                     dangerouslySetInnerHTML={{ __html: generatedMarkdown }}
@@ -236,7 +247,7 @@ export default function IconGridGenerator({
                   <Input
                     value={generatedMarkdown}
                     readOnly
-                    className="font-mono text-sm"
+                    className="font-mono text-xs"
                   />
                   <Button size="icon" onClick={copyToClipboard}>
                     {isCopied ? (
@@ -247,16 +258,11 @@ export default function IconGridGenerator({
                   </Button>
                 </div>
               </div>
+            ) : (
+              <div className="h-[400px] flex items-center justify-center border-2 border-dashed border-border/30 rounded-xl bg-muted/10">
+                <p className="text-sm text-muted-foreground">Generate markdown to see output</p>
+              </div>
             )}
-          </div>
-
-          <div className="w-full lg:max-w-sm lg:border-l lg:pl-4 lg:border-border/30">
-            <DndList
-              items={selectedTech}
-              setItems={setSelectedTech}
-              getItemId={(tech) => tech.id}
-              renderItem={(tech) => tech.name}
-            />
           </div>
         </div>
       </div>
