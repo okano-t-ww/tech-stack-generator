@@ -19,8 +19,6 @@ export interface IconGridGeneratorProps {
   categories: TechCategory[];
 }
 
-type OutputFormat = "single" | "individual";
-
 export default function IconGridGenerator({
   title,
   techList,
@@ -29,7 +27,6 @@ export default function IconGridGenerator({
   const [selectedTech, setSelectedTech] = useState<TechItem[]>([]);
   const [perLine, setPerLine] = useState<PerLine>(10);
   const [generatedMarkdown, setGeneratedMarkdown] = useState<string>("");
-  const [outputFormat, setOutputFormat] = useState<OutputFormat>("single");
   const [isCopied, setIsCopied] = useState(false);
 
   const filteredTech = techList.filter((tech) =>
@@ -53,35 +50,18 @@ export default function IconGridGenerator({
   const selectedIconIds = selectedTech.map((tech) => tech.id);
 
   const generateMarkdown = () => {
-    let markdown = "";
+    const iconSize = 48;
+    const icons = selectedTech
+      .map((tech) => {
+        const techData = TECH_STACK[tech.id as keyof typeof TECH_STACK];
+        const iconifyId = techData?.iconify || `logos:${tech.id}`;
+        const iconUrl = `https://api.iconify.design/${iconifyId}.svg?width=${iconSize}&height=${iconSize}`;
+        const link = (techData && 'link' in techData ? techData.link : undefined) || `https://simpleicons.org/?q=${encodeURIComponent(tech.name)}`;
+        return `<a href="${link}" target="_blank" rel="noopener noreferrer"><img src="${iconUrl}" alt="${tech.name}" width="${iconSize}" height="${iconSize}" /></a>`;
+      })
+      .join(" ");
 
-    if (outputFormat === "single") {
-      const iconSize = 48;
-      const icons = selectedTech
-        .map((tech) => {
-          const techData = TECH_STACK[tech.id as keyof typeof TECH_STACK];
-          const iconifyId = techData?.iconify || `logos:${tech.id}`;
-          const iconUrl = `https://api.iconify.design/${iconifyId}.svg?width=${iconSize}&height=${iconSize}`;
-          return `<img src="${iconUrl}" alt="${tech.name}" width="${iconSize}" height="${iconSize}" />`;
-        })
-        .join(" ");
-
-      markdown = `<p align="center">\n  ${icons}\n</p>`;
-    } else {
-      const iconSize = 48;
-      const icons = selectedTech
-        .map((tech) => {
-          const techData = TECH_STACK[tech.id as keyof typeof TECH_STACK];
-          const iconifyId = techData?.iconify || `logos:${tech.id}`;
-          const iconUrl = `https://api.iconify.design/${iconifyId}.svg?width=${iconSize}&height=${iconSize}`;
-          const link = (techData && 'link' in techData ? techData.link : undefined) || `https://simpleicons.org/?q=${encodeURIComponent(tech.name)}`;
-          return `<a href="${link}" target="_blank" rel="noopener noreferrer"><img src="${iconUrl}" alt="${tech.name}" width="${iconSize}" height="${iconSize}" /></a>`;
-        })
-        .join(" ");
-
-      markdown = `<p align="center">\n  ${icons}\n</p>`;
-    }
-
+    const markdown = `<p align="center">\n  ${icons}\n</p>`;
     setGeneratedMarkdown(markdown);
   };
 
@@ -136,56 +116,34 @@ export default function IconGridGenerator({
           <span className="h-px flex-1 bg-gradient-to-r from-primary/30 to-transparent"></span>
         </div>
 
-        <div className="space-y-2">
-          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-            <label className="form-label">Output Format</label>
+        <div className="flex flex-col sm:flex-row gap-2 sm:justify-between items-start sm:items-center border-b border-border/30 pb-2">
+          <div className="flex flex-row gap-2 items-center">
+            <label className="form-label">Preview</label>
             <Combobox
               items={[
-                { value: "single", label: "Single Image" },
-                { value: "individual", label: "Individual Icons (with links)" },
+                { value: "5", label: "5" },
+                { value: "6", label: "6" },
+                { value: "7", label: "7" },
+                { value: "8", label: "8" },
+                { value: "9", label: "9" },
+                { value: "10", label: "10" },
               ]}
-              placeholder="Format"
-              defaultValue="single"
+              placeholder="per line"
+              defaultValue="10"
               disableSearch
               onSelect={(value) => {
-                setOutputFormat(value as OutputFormat);
+                setPerLine(Number(value) as PerLine);
               }}
-              width="220px"
+              width="120px"
               height="25px"
             />
           </div>
-
-          <div className="flex flex-col sm:flex-row gap-2 sm:justify-between items-start sm:items-center border-b border-border/30 pb-2">
-            <div className="flex flex-row gap-2 items-center">
-              <label className="form-label">Preview</label>
-              {outputFormat === "single" && (
-                <Combobox
-                  items={[
-                    { value: "5", label: "5" },
-                    { value: "6", label: "6" },
-                    { value: "7", label: "7" },
-                    { value: "8", label: "8" },
-                    { value: "9", label: "9" },
-                    { value: "10", label: "10" },
-                  ]}
-                  placeholder="per line"
-                  defaultValue="10"
-                  disableSearch
-                  onSelect={(value) => {
-                    setPerLine(Number(value) as PerLine);
-                  }}
-                  width="120px"
-                  height="25px"
-                />
-              )}
-            </div>
-            <div>
-              <TooltipIconButton
-                onClick={handleSelectAll}
-                icon={getSelectAllIcon()}
-                tooltipText="Select All"
-              />
-            </div>
+          <div>
+            <TooltipIconButton
+              onClick={handleSelectAll}
+              icon={getSelectAllIcon()}
+              tooltipText="Select All"
+            />
           </div>
         </div>
 
