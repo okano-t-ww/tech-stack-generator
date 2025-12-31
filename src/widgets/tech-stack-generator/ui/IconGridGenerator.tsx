@@ -131,13 +131,16 @@ export default function IconGridGenerator({
   };
 
   return (
-    <div className="space-y-4">
-      <div className="space-y-4">
-        <div className="text-3xl font-bold">{title}</div>
+    <div className="space-y-6">
+      <div className="space-y-6">
+        <div className="flex items-center gap-3">
+          <h2 className="text-4xl font-bold text-foreground">{title}</h2>
+          <span className="h-1 flex-1 rounded-full bg-gradient-to-r from-primary/30 to-transparent"></span>
+        </div>
 
-        <div className="space-y-2">
-          <div className="flex flex-row gap-2 items-center">
-            <div className="text-sm font-medium">Output Format:</div>
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+            <label className="form-label">Output Format</label>
             <Combobox
               items={[
                 { value: "single", label: "Single Image" },
@@ -154,9 +157,9 @@ export default function IconGridGenerator({
             />
           </div>
 
-          <div className="flex flex-row gap-2 justify-between">
-            <div className="flex flex-row gap-2 items-center">
-              <div className="text-sm">Preview</div>
+          <div className="flex flex-col sm:flex-row gap-3 sm:justify-between items-start sm:items-center border-b border-border/30 pb-4">
+            <div className="flex flex-row gap-3 items-center">
+              <label className="form-label">Preview</label>
               {outputFormat === "single" && (
                 <Combobox
                   items={[
@@ -188,9 +191,9 @@ export default function IconGridGenerator({
           </div>
         </div>
 
-        <div className="flex flex-row gap-2">
-          <div className="flex-1">
-            <div className="min-h-20 p-3 flex items-center justify-center border rounded-lg bg-muted">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-4">
+          <div className="flex-1 space-y-6">
+            <div className="min-h-28 p-6 flex items-center justify-center border-2 border-dashed border-border/50 rounded-xl bg-gradient-to-b from-muted/20 to-transparent hover:border-primary/30 hover:bg-muted/10 transition-all duration-200">
               <TechIconGrid
                 iconIds={selectedIconIds}
                 perLine={perLine}
@@ -212,16 +215,20 @@ export default function IconGridGenerator({
 
             <Button
               onClick={generateMarkdown}
-              className="w-full mt-6"
+              className="w-full mt-8 h-11 font-semibold shadow-lg hover:shadow-xl transition-all duration-200 relative overflow-hidden group"
               disabled={!selectedTech.length}
             >
-              Generate Markdown
+              <span className="relative z-10">Generate Markdown</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </Button>
 
             {generatedMarkdown && (
-              <div className="space-y-4 mt-4">
-                <div className="border rounded-lg p-4 bg-muted">
-                  <div className="text-sm font-medium mb-2">Preview:</div>
+              <div className="space-y-4 mt-6">
+                <div className="border-2 border-primary/20 rounded-xl p-6 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="h-1 w-1 rounded-full bg-primary"></div>
+                    <label className="form-label mb-0">Generated Preview</label>
+                  </div>
                   <div
                     dangerouslySetInnerHTML={{ __html: generatedMarkdown }}
                     className="flex items-center justify-center [&_a]:inline-block"
@@ -245,7 +252,7 @@ export default function IconGridGenerator({
             )}
           </div>
 
-          <div className="w-full max-w-sm">
+          <div className="w-full lg:max-w-sm lg:border-l lg:pl-6 lg:border-border/30">
             <DndList
               items={selectedTech}
               setItems={setSelectedTech}
