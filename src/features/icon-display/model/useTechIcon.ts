@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import { TechStackService } from '@/entities/tech/model/TechStackService';
-import { IconifyService } from '@/entities/tech/api/iconify';
+import * as TechStackService from '@/entities/tech/model/TechStackService';
+import * as IconifyService from '@/entities/tech/api/iconify';
 import type { TechId, IconSize } from '@/entities/tech/model/types';
 import { isSome, toNullable } from '@/shared/lib';
 

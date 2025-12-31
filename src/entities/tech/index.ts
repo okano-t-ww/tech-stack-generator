@@ -6,9 +6,9 @@
 
 // Model
 export { TECH_STACK, TECH_STACK_LIST } from './model/techStackData';
-export { TechStackService } from './model/TechStackService';
+export * as TechStackService from './model/TechStackService';
 export { TechCategory } from './model/types';
 export type { TechItem, TechId, IconifyId, IconUrl, IconSize } from './model/types';
 
 // API
-export { IconifyService } from './api/iconify';
+export * as IconifyService from './api/iconify';

@@ -4,5 +4,6 @@
  * Tech StackからMarkdownを生成する機能を提供
  */
 
-export { MarkdownService, type OutputFormat } from './model/MarkdownService';
+export * as MarkdownService from './model/MarkdownService';
+export type { OutputFormat } from './model/MarkdownService';
 export { useMarkdownGenerator } from './model/useMarkdownGenerator';
