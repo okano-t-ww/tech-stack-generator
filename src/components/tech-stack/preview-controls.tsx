@@ -40,7 +40,7 @@ export const PreviewControls = ({
       <Toggle
         pressed={includeTitle}
         onClick={() => onIncludeTitleChange(!includeTitle)}
-        className="text-xs h-[25px]"
+        className="text-xs h-6.25"
       >
         Include Title
       </Toggle>

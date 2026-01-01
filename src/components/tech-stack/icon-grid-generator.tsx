@@ -43,7 +43,7 @@ export default function IconGridGenerator({
       <div className="space-y-3">
         <div className="flex items-center gap-2">
           <h2 className="text-2xl font-bold text-foreground">{title}</h2>
-          <span className="h-px flex-1 bg-gradient-to-r from-primary/30 to-transparent"></span>
+          <span className="h-px flex-1 bg-linear-to-r from-primary/30 to-transparent"></span>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-2 sm:justify-between items-start sm:items-center border-b border-border/30 pb-2">
