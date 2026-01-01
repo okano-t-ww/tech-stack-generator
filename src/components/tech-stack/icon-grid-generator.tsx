@@ -1,7 +1,11 @@
 "use client";
 
 import type { TechItem, TechCategory } from "@/types/tech";
-import { useIconGridGenerator } from "@/hooks/tech-stack/use-icon-grid-generator";
+import { getTabPrefix } from "@/lib/tech-stack/tab-config";
+import { useTabUrlState } from "@/hooks/tech-stack/use-tab-url-state";
+import { useTechFiltering } from "@/hooks/tech-stack/use-tech-filtering";
+import { useTechSelection } from "@/hooks/tech-stack/use-tech-selection";
+import { useMarkdownGenerator } from "@/hooks/tech-stack/use-markdown-generator";
 import { PreviewControls } from "./preview-controls";
 import { TechSelectionPanel } from "./tech-selection-panel";
 import { PreviewPanel } from "./preview-panel";
@@ -18,25 +22,41 @@ export default function IconGridGenerator({
   techList,
   categories,
 }: IconGridGeneratorProps) {
+  const tabPrefix = getTabPrefix(title);
+
+  if (!tabPrefix) {
+    throw new Error(`Invalid tab title: ${title}`);
+  }
+
+  // URL-synced state management
+  const { state, selectedTech, setSelectedTech, setPerLine, setIncludeTitle } =
+    useTabUrlState(tabPrefix);
+
+  // Tech filtering (local state)
+  const { filteredTech, searchKeyword, setSearchKeyword } = useTechFiltering({
+    techList,
+    categories,
+  });
+
+  // Tech selection actions
   const {
-    selectedTech,
-    setSelectedTech,
-    perLine,
-    setPerLine,
-    generatedMarkdown,
-    isCopied,
-    includeTitle,
-    setIncludeTitle,
-    searchKeyword,
-    setSearchKeyword,
-    filteredTech,
     selectedTechSet,
     selectedIconIds,
-    generateMarkdown,
-    copyToClipboard,
     handleTechToggle,
     handleSelectAll,
-  } = useIconGridGenerator({ title, techList, categories });
+  } = useTechSelection({
+    selectedTech,
+    setSelectedTech,
+    filteredTech,
+  });
+
+  // Markdown generation
+  const { generatedMarkdown, isCopied, generateMarkdown, copyToClipboard } =
+    useMarkdownGenerator({
+      selectedTech,
+      includeTitle: state.includeTitle,
+      title,
+    });
 
   return (
     <div className="space-y-3">
@@ -48,9 +68,9 @@ export default function IconGridGenerator({
 
         <div className="flex flex-col sm:flex-row gap-2 sm:justify-between items-start sm:items-center border-b border-border/30 pb-2">
           <PreviewControls
-            perLine={perLine}
+            perLine={state.perLine}
             onPerLineChange={setPerLine}
-            includeTitle={includeTitle}
+            includeTitle={state.includeTitle}
             onIncludeTitleChange={setIncludeTitle}
           />
         </div>
@@ -70,7 +90,7 @@ export default function IconGridGenerator({
           {/* Center Column: Preview with DnD */}
           <PreviewPanel
             selectedIconIds={selectedIconIds}
-            perLine={perLine}
+            perLine={state.perLine}
             selectedTech={selectedTech}
             onSelectedTechChange={setSelectedTech}
             onGenerate={generateMarkdown}

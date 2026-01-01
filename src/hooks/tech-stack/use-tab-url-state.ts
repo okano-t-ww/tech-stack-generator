@@ -1,4 +1,3 @@
-import { useCallback, useMemo } from "react";
 import { useQueryStates } from "nuqs";
 import type { TechItem } from "@/types/tech";
 import { TECH_STACK } from "@/data/tech-stack-data";
@@ -26,50 +25,38 @@ interface UseTabUrlStateReturn {
  * Handles URL synchronization for selected tech, perLine, and includeTitle
  */
 export function useTabUrlState(tabPrefix: TabPrefix): UseTabUrlStateReturn {
-  const urlParsers = useMemo(() => createTabParsers(tabPrefix), [tabPrefix]);
+  const urlParsers = createTabParsers(tabPrefix);
 
   const [urlState, setUrlState] = useQueryStates(urlParsers, {
     history: "push",
     shallow: true,
   });
 
-  const state = useMemo(
-    () => extractTabUrlState(urlState, tabPrefix),
-    [urlState, tabPrefix]
-  );
+  const state = extractTabUrlState(urlState, tabPrefix);
 
   // Hydrate selectedTech from URL IDs
-  const selectedTech = useMemo(() => {
-    return state.selected
-      .map((id) => TECH_STACK[id as keyof typeof TECH_STACK])
-      .filter(Boolean) as TechItem[];
-  }, [state.selected]);
+  const selectedTech = state.selected
+    .map((id) => TECH_STACK[id as keyof typeof TECH_STACK])
+    .filter(Boolean) as TechItem[];
 
   // Setters that update URL state
-  const setSelectedTech = useCallback(
-    (updater: TechItem[] | ((prev: TechItem[]) => TechItem[])) => {
-      const newTech =
-        typeof updater === "function" ? updater(selectedTech) : updater;
-      const newIds = newTech.map((tech) => tech.id);
-      setUrlState({ [`${tabPrefix}_selected`]: newIds });
-    },
-    [selectedTech, tabPrefix, setUrlState]
-  );
+  const setSelectedTech = (
+    updater: TechItem[] | ((prev: TechItem[]) => TechItem[])
+  ) => {
+    const newTech =
+      typeof updater === "function" ? updater(selectedTech) : updater;
+    const newIds = newTech.map((tech) => tech.id);
+    setUrlState({ [`${tabPrefix}_selected`]: newIds });
+  };
 
-  const setPerLine = useCallback(
-    (value: PerLine) => {
-      const validValue = clampPerLine(value);
-      setUrlState({ [`${tabPrefix}_perLine`]: validValue });
-    },
-    [tabPrefix, setUrlState]
-  );
+  const setPerLine = (value: PerLine) => {
+    const validValue = clampPerLine(value);
+    setUrlState({ [`${tabPrefix}_perLine`]: validValue });
+  };
 
-  const setIncludeTitle = useCallback(
-    (value: boolean) => {
-      setUrlState({ [`${tabPrefix}_includeTitle`]: value });
-    },
-    [tabPrefix, setUrlState]
-  );
+  const setIncludeTitle = (value: boolean) => {
+    setUrlState({ [`${tabPrefix}_includeTitle`]: value });
+  };
 
   return {
     state,

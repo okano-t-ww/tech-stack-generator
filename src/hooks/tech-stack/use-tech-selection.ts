@@ -1,4 +1,3 @@
-import { useCallback, useMemo } from "react";
 import type { TechItem } from "@/types/tech";
 
 interface UseTechSelectionProps {
@@ -25,32 +24,22 @@ export function useTechSelection({
   setSelectedTech,
   filteredTech,
 }: UseTechSelectionProps): UseTechSelectionReturn {
-  const selectedTechSet = useMemo(
-    () => new Set(selectedTech.map((tech) => tech.id)),
-    [selectedTech]
-  );
+  const selectedTechSet = new Set(selectedTech.map((tech) => tech.id));
+  const selectedIconIds = selectedTech.map((tech) => tech.id);
 
-  const selectedIconIds = useMemo(
-    () => selectedTech.map((tech) => tech.id),
-    [selectedTech]
-  );
+  const handleTechToggle = (tech: TechItem) => {
+    setSelectedTech((prev) =>
+      prev.some((item) => item.id === tech.id)
+        ? prev.filter((item) => item.id !== tech.id)
+        : [...prev, tech]
+    );
+  };
 
-  const handleTechToggle = useCallback(
-    (tech: TechItem) => {
-      setSelectedTech((prev) =>
-        prev.some((item) => item.id === tech.id)
-          ? prev.filter((item) => item.id !== tech.id)
-          : [...prev, tech]
-      );
-    },
-    [setSelectedTech]
-  );
-
-  const handleSelectAll = useCallback(() => {
+  const handleSelectAll = () => {
     setSelectedTech((prev) =>
       prev.length === filteredTech.length ? [] : filteredTech
     );
-  }, [filteredTech, setSelectedTech]);
+  };
 
   return {
     selectedTechSet,

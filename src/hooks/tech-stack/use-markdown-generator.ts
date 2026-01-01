@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { toast } from "@/lib/use-toast";
 import type { TechItem } from "@/types/tech";
 import { TECH_STACK } from "@/data/tech-stack-data";
@@ -28,7 +28,7 @@ export function useMarkdownGenerator({
   const [generatedMarkdown, setGeneratedMarkdown] = useState<string>("");
   const [isCopied, setIsCopied] = useState(false);
 
-  const generateMarkdown = useCallback(() => {
+  const generateMarkdown = () => {
     const iconSize = 48;
     const icons = selectedTech
       .map((tech) => {
@@ -46,9 +46,9 @@ export function useMarkdownGenerator({
       includeTitle && title !== "All" ? `### ${title}\n\n` : "";
     const markdown = `${titleSection}<p align="center">\n  ${icons}\n</p>`;
     setGeneratedMarkdown(markdown);
-  }, [selectedTech, includeTitle, title]);
+  };
 
-  const copyToClipboard = useCallback(() => {
+  const copyToClipboard = () => {
     if (!generatedMarkdown) {
       toast({
         title: "No Markdown generated",
@@ -75,7 +75,7 @@ export function useMarkdownGenerator({
           variant: "destructive",
         });
       });
-  }, [generatedMarkdown]);
+  };
 
   return {
     generatedMarkdown,

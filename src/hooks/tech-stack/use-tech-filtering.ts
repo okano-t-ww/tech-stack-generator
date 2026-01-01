@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from "react";
+import { useState } from "react";
 import type { TechItem, TechCategory } from "@/types/tech";
 
 interface UseTechFilteringProps {
@@ -22,18 +22,15 @@ export function useTechFiltering({
 }: UseTechFilteringProps): UseTechFilteringReturn {
   const [searchKeyword, setSearchKeyword] = useState("");
 
-  const filteredTech = useMemo(() => {
-    const categoryFiltered = techList.filter((tech) =>
-      categories.includes(tech.category)
-    );
+  const categoryFiltered = techList.filter((tech) =>
+    categories.includes(tech.category)
+  );
 
-    if (!searchKeyword) return categoryFiltered;
-
-    const keyword = searchKeyword.toLowerCase();
-    return categoryFiltered.filter((tech) =>
-      tech.name.toLowerCase().includes(keyword)
-    );
-  }, [techList, categories, searchKeyword]);
+  const filteredTech = !searchKeyword
+    ? categoryFiltered
+    : categoryFiltered.filter((tech) =>
+        tech.name.toLowerCase().includes(searchKeyword.toLowerCase())
+      );
 
   return {
     filteredTech,
