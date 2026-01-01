@@ -47,10 +47,13 @@ function SortableIcon({ iconId, size }: { iconId: string; size: number }) {
   const tech = TECH_STACK[iconId as keyof typeof TECH_STACK];
   const iconifyIcon = tech?.iconify || `logos:${iconId}`;
   const iconUrl = `https://api.iconify.design/${iconifyIcon}.svg?width=${size}&height=${size}`;
+  const iconUrlDark = tech && "iconifyDark" in tech && tech.iconifyDark
+    ? `https://api.iconify.design/${tech.iconifyDark}.svg?width=${size}&height=${size}`
+    : undefined;
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <IconImage src={iconUrl} alt={tech?.name || iconId} size={size} />
+      <IconImage src={iconUrl} srcDark={iconUrlDark} alt={tech?.name || iconId} size={size} />
     </div>
   );
 }
@@ -140,10 +143,14 @@ const TechIconGrid = React.memo(function TechIconGrid({
         const tech = TECH_STACK[iconId as keyof typeof TECH_STACK];
         const iconifyIcon = tech?.iconify || `logos:${iconId}`;
         const iconUrl = `https://api.iconify.design/${iconifyIcon}.svg?width=${size}&height=${size}`;
+        const iconUrlDark = tech && "iconifyDark" in tech && tech.iconifyDark
+          ? `https://api.iconify.design/${tech.iconifyDark}.svg?width=${size}&height=${size}`
+          : undefined;
         return (
           <IconImage
             key={iconId}
             src={iconUrl}
+            srcDark={iconUrlDark}
             alt={tech?.name || iconId}
             size={size}
           />

@@ -1,21 +1,54 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ImageOff } from "lucide-react";
 
 interface IconImageProps {
   src: string;
+  srcDark?: string;
   alt: string;
   size: number;
 }
 
-export const IconImage = React.memo(function IconImage({
-  src,
-  alt,
-  size,
-}: IconImageProps) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
+export const IconImage = React.memo(
+  function IconImage({ src, srcDark, alt, size }: IconImageProps) {
+    const [isLoading, setIsLoading] = useState(true);
+    const [hasError, setHasError] = useState(false);
+    const [isDark, setIsDark] = useState(() => {
+      // Initialize with current dark mode state (client-side only)
+      if (typeof window !== "undefined") {
+        return document.documentElement.classList.contains("dark");
+      }
+      return false;
+    });
+
+    useEffect(() => {
+      // Check if dark mode is enabled
+      const checkDarkMode = () => {
+        const isDarkMode = document.documentElement.classList.contains("dark");
+        setIsDark(isDarkMode);
+      };
+
+      checkDarkMode();
+
+      // Watch for theme changes
+      const observer = new MutationObserver(checkDarkMode);
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+
+      return () => observer.disconnect();
+    }, []);
+
+    // Calculate current src based on dark mode
+    const currentSrc = isDark && srcDark ? srcDark : src;
+
+    // Reset loading/error state when currentSrc changes
+    useEffect(() => {
+      setIsLoading(true);
+      setHasError(false);
+    }, [currentSrc]);
 
   if (hasError) {
     return (
@@ -38,7 +71,7 @@ export const IconImage = React.memo(function IconImage({
         />
       )}
       <img
-        src={src}
+        src={currentSrc}
         alt={alt}
         width={size}
         height={size}
@@ -54,4 +87,15 @@ export const IconImage = React.memo(function IconImage({
       />
     </div>
   );
-});
+  },
+  (prevProps, nextProps) => {
+    // Custom comparison function for memo
+    // Re-render if any prop changes
+    return (
+      prevProps.src === nextProps.src &&
+      prevProps.srcDark === nextProps.srcDark &&
+      prevProps.alt === nextProps.alt &&
+      prevProps.size === nextProps.size
+    );
+  }
+);

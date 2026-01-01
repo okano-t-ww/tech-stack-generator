@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 pt-2 sm:px-6 lg:px-8">
         <div className="flex items-center gap-4 flex-wrap">
           <span className="text-sm text-gray-500 dark:text-gray-400">
-            Powered by:
+            Icons by:
           </span>
           <a
             className="text-sm text-gray-600 hover:text-gray-900 hover:underline dark:text-gray-300 dark:hover:text-white"

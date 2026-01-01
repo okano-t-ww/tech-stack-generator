@@ -27,6 +27,7 @@ export const TECH_STACK = {
     name: "Angular",
     category: TechCategory.Framework,
     iconify: "logos:angular-icon",
+    iconifyDark: "logos:angular-icon-dark",
     link: "https://angular.io/",
   },
   "ansible": {
@@ -65,6 +66,7 @@ export const TECH_STACK = {
     name: "Astro",
     category: TechCategory.Framework,
     iconify: "logos:astro-icon",
+    iconifyDark: "logos:astro-icon-dark",
     link: "https://astro.build/",
   },
   "atom": {
@@ -346,6 +348,7 @@ export const TECH_STACK = {
     name: "GitHub",
     category: TechCategory.Other,
     iconify: "logos:github-icon",
+    iconifyDark: "logos:github-icon-dark",
     link: "https://github.com/",
   },
   "gitlab": {
@@ -353,6 +356,7 @@ export const TECH_STACK = {
     name: "GitLab",
     category: TechCategory.Other,
     iconify: "logos:gitlab-icon",
+    iconifyDark: "logos:gitlab-icon-dark",
     link: "https://about.gitlab.com/",
   },
   "go": {
@@ -565,6 +569,7 @@ export const TECH_STACK = {
     name: "Next.js",
     category: TechCategory.Framework,
     iconify: "logos:nextjs-icon",
+    iconifyDark: "logos:nextjs-icon-dark",
     link: "https://nextjs.org/",
   },
   "nginx": {
@@ -599,6 +604,7 @@ export const TECH_STACK = {
     name: "Nuxt.js",
     category: TechCategory.Framework,
     iconify: "logos:nuxt-icon",
+    iconifyDark: "logos:nuxt-icon-dark",
     link: "https://nuxt.com/",
   },
   "obsidian": {
@@ -758,6 +764,7 @@ export const TECH_STACK = {
     name: "React",
     category: TechCategory.Framework,
     iconify: "logos:react",
+    iconifyDark: "logos:react-dark",
     link: "https://react.dev/",
   },
   "reactivex": {
@@ -911,7 +918,8 @@ export const TECH_STACK = {
     id: "solidjs",
     name: "SolidJS",
     category: TechCategory.Framework,
-    iconify: "logos:solidjs",
+    iconify: "logos:solidjs-icon",
+    iconifyDark: "logos:solidjs-icon-dark",
     link: "https://www.solidjs.com/",
   },
   "svelte": {
@@ -919,6 +927,7 @@ export const TECH_STACK = {
     name: "Svelte",
     category: TechCategory.Framework,
     iconify: "logos:svelte-icon",
+    iconifyDark: "logos:svelte-icon-dark",
     link: "https://svelte.dev/",
   },
   "svg": {
@@ -953,6 +962,7 @@ export const TECH_STACK = {
     name: "Tauri",
     category: TechCategory.Platform,
     iconify: "logos:tauri",
+    iconifyDark: "logos:tauri-dark",
     link: "https://tauri.app/",
   },
   "tensorflow": {
@@ -1007,6 +1017,7 @@ export const TECH_STACK = {
     name: "Vercel",
     category: TechCategory.Platform,
     iconify: "logos:vercel-icon",
+    iconifyDark: "logos:vercel-icon-dark",
     link: "https://vercel.com/",
   },
   "vim": {
@@ -1022,10 +1033,18 @@ export const TECH_STACK = {
     category: TechCategory.Platform,
     iconify: "logos:visual-studio",
   },
+  "vite": {
+    id: "vite",
+    name: "Vite",
+    category: TechCategory.BuildTool,
+    iconify: "logos:vitejs",
+    iconifyDark: "logos:vitejs-dark",
+    link: "https://vitejs.dev/",
+  },
   "vitest": {
     id: "vitest",
     name: "Vitest",
-    category: TechCategory.Other,
+    category: TechCategory.Testing,
     iconify: "logos:vitest",
     link: "https://vitest.dev/",
   },
@@ -1034,6 +1053,7 @@ export const TECH_STACK = {
     name: "Visual Studio Code",
     category: TechCategory.Other,
     iconify: "logos:visual-studio-code",
+    iconifyDark: "logos:visual-studio-code-dark",
     link: "https://code.visualstudio.com/",
   },
   "vue": {
@@ -1041,6 +1061,7 @@ export const TECH_STACK = {
     name: "Vue.js",
     category: TechCategory.Framework,
     iconify: "logos:vue",
+    iconifyDark: "logos:vue-dark",
     link: "https://vuejs.org/",
   },
   "wasm": {
@@ -1111,13 +1132,15 @@ export const TECH_STACK = {
     id: "qwik",
     name: "Qwik",
     category: TechCategory.Framework,
-    iconify: "logos:qwik"
+    iconify: "logos:qwik",
+    iconifyDark: "logos:qwik-dark"
   },
   "preact": {
     id: "preact",
     name: "Preact",
     category: TechCategory.Framework,
-    iconify: "logos:preact"
+    iconify: "logos:preact",
+    iconifyDark: "logos:preact-dark"
   },
   "analog": {
     id: "analog",
