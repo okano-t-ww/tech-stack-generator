@@ -1,4 +1,4 @@
-import type { IconifyId, IconUrl, IconSize } from '@/types/tech';
+import type { IconifyId, IconUrl, IconSize, TechItem } from '@/types/tech';
 import { validateIconSize } from '@/types/tech';
 
 /**
@@ -22,6 +22,23 @@ export const getIconUrl = (iconifyId: IconifyId, size: IconSize = DEFAULT_SIZE):
   const validatedSize = validateIconSize(size);
   const url = `${BASE_URL}/${iconifyId}.svg?width=${validatedSize}&height=${validatedSize}`;
   return url as IconUrl;
+};
+
+/**
+ * ダークモード対応のアイコンURLを生成
+ *
+ * @param tech - TechItemオブジェクト
+ * @param size - アイコンサイズ (デフォルト: 48, 範囲: 16-512)
+ * @param isDark - ダークモードかどうか (デフォルト: false)
+ * @returns アイコンのSVG URL
+ */
+export const getIconUrlWithTheme = (
+  tech: TechItem,
+  size: IconSize = DEFAULT_SIZE,
+  isDark: boolean = false
+): IconUrl => {
+  const iconifyId = isDark && tech.iconifyDark ? tech.iconifyDark : tech.iconify;
+  return getIconUrl(iconifyId, size);
 };
 
 /**

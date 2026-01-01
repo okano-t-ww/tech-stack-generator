@@ -53,6 +53,7 @@ export const TechItemSchema = z.object({
   name: z.string().min(1),
   category: z.nativeEnum(TechCategory),
   iconify: IconifyIdSchema,
+  iconifyDark: IconifyIdSchema.optional(),
   link: TechLinkSchema.optional(),
   aliases: z.array(z.string()).optional(),
   tags: z.array(z.string()).optional(),
