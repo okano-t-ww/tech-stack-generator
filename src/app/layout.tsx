@@ -10,13 +10,13 @@ import Footer from "@/components/layout/footer";
 export const metadata: Metadata = {
   title: "Tech Stack Generator",
   description:
-    "This is a generator tool that creates customized Tech Stack from the Skillicons icon set in Markdown format.",
+    "Generate customized tech stack badges using Iconify icons. Create beautiful, shareable markdown for your GitHub profile or documentation.",
   openGraph: {
     type: "website",
     url: "https://tech-stack-generator.vercel.app/",
     title: "Tech Stack Generator",
     description:
-      "This is a generator tool that creates customized Tech Stack from the Skillicons icon set in Markdown format.",
+      "Generate customized tech stack badges using Iconify icons. Create beautiful, shareable markdown for your GitHub profile or documentation.",
   },
 };
 
