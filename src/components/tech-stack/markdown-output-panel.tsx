@@ -18,7 +18,7 @@ export const MarkdownOutputPanel = ({
     return (
       <div className="xl:col-span-5 space-y-2">
         <label className="form-label">Generated Output</label>
-        <div className="h-[400px] flex items-center justify-center border-2 border-dashed border-border/30 rounded-xl bg-muted/10">
+        <div className="h-100 flex items-center justify-center border-2 border-dashed border-border/30 rounded-xl bg-muted/10">
           <p className="text-sm text-muted-foreground">
             Generate markdown to see output
           </p>
@@ -31,7 +31,7 @@ export const MarkdownOutputPanel = ({
     <div className="xl:col-span-5 space-y-2">
       <label className="form-label">Generated Output</label>
       <div className="space-y-2">
-        <div className="border-2 border-primary/20 rounded-xl p-4 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 shadow-sm min-h-[400px]">
+        <div className="border-2 border-primary/20 rounded-xl p-4 bg-linear-to-br from-primary/5 via-transparent to-accent/5 shadow-sm min-h-100">
           <div className="flex items-center gap-2 mb-3">
             <div className="h-1 w-1 rounded-full bg-primary"></div>
             <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">

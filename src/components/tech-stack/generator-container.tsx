@@ -1,75 +1,25 @@
 "use client";
 
 import React from "react";
-import { TechCategory } from "@/types/tech";
-import { TECH_STACK_LIST } from "@/data/tech-stack-data";
-import IconGridGenerator, {
-  type IconGridGeneratorProps,
-} from "./icon-grid-generator";
+import { useQueryState, parseAsString } from "nuqs";
+import IconGridGenerator from "./icon-grid-generator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { TAB_CONFIGS, DEFAULT_TAB } from "@/lib/tech-stack/tab-config";
 
 export default function GeneratorContainer() {
-  const generatorPropsList: IconGridGeneratorProps[] = [
-    {
-      title: "Languages",
-      techList: TECH_STACK_LIST,
-      categories: [TechCategory.Language],
-    },
-    {
-      title: "Frameworks & Libraries",
-      techList: TECH_STACK_LIST,
-      categories: [TechCategory.Framework, TechCategory.Library],
-    },
-    {
-      title: "Platforms & Cloud",
-      techList: TECH_STACK_LIST,
-      categories: [TechCategory.Platform, TechCategory.Cloud],
-    },
-    {
-      title: "Databases",
-      techList: TECH_STACK_LIST,
-      categories: [TechCategory.Database],
-    },
-    {
-      title: "DevOps & Build Tools",
-      techList: TECH_STACK_LIST,
-      categories: [
-        TechCategory.CICD,
-        TechCategory.BuildTool,
-        TechCategory.Testing,
-        TechCategory.Monitoring,
-      ],
-    },
-    {
-      title: "Design & Editors",
-      techList: TECH_STACK_LIST,
-      categories: [TechCategory.Design, TechCategory.Editor],
-    },
-    {
-      title: "Message Queues",
-      techList: TECH_STACK_LIST,
-      categories: [TechCategory.MessageQueue],
-    },
-    {
-      title: "Other",
-      techList: TECH_STACK_LIST,
-      categories: [TechCategory.Other],
-    },
-    {
-      title: "All",
-      techList: TECH_STACK_LIST,
-      categories: Object.values(TechCategory),
-    },
-  ];
+  const [activeTab, setActiveTab] = useQueryState(
+    "tab",
+    parseAsString.withDefault(DEFAULT_TAB)
+  );
 
   return (
     <div className="w-full min-h-screen">
       <div className="px-4 sm:px-6 lg:px-8 py-3 md:py-4 space-y-3">
-        <Tabs defaultValue={generatorPropsList[0].title}>
+        <Tabs value={activeTab} onValueChange={setActiveTab}>
           <ScrollArea className="whitespace-nowrap pb-3 rounded-md">
             <TabsList className="w-full">
-              {generatorPropsList.map(({ title }) => (
+              {TAB_CONFIGS.map(({ title }) => (
                 <TabsTrigger
                   key={title}
                   value={title}
@@ -81,7 +31,7 @@ export default function GeneratorContainer() {
             </TabsList>
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
-          {generatorPropsList.map((props) => {
+          {TAB_CONFIGS.map((props) => {
             const { title } = props;
             return (
               <TabsContent key={title} value={title}>

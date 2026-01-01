@@ -2,7 +2,7 @@ import { IconToggle } from "@/components/ui/icon-toggle";
 import { TooltipIconButton } from "@/components/ui/components/TooltipIconButton";
 import { Input } from "@/components/ui/input";
 import type { TechItem } from "@/types/tech";
-import { useTechSelectionData } from "@/lib/tech-stack/use-tech-selection-data";
+import { useTechSelectionData } from "@/hooks/tech-stack/use-tech-selection-data";
 
 interface TechSelectionPanelProps {
   filteredTech: TechItem[];
@@ -33,7 +33,7 @@ export const TechSelectionPanel = (props: TechSelectionPanelProps) => {
         onChange={(e) => props.onSearchChange(e.target.value)}
         className="h-9 text-sm"
       />
-      <div className="flex flex-row flex-wrap gap-2 max-h-[600px] overflow-y-auto p-2 border border-border/30 rounded-lg bg-muted/20">
+      <div className="flex flex-row flex-wrap gap-2 max-h-150 overflow-y-auto p-2 border border-border/30 rounded-lg bg-muted/20">
         {toggleItems.map((item) => (
           <IconToggle
             key={item.id}

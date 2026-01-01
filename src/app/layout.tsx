@@ -1,33 +1,22 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme-provider";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Tech Stack Generator",
   description:
-    "This is a generator tool that creates customized Tech Stack from the Skillicons icon set in Markdown format.",
+    "Generate customized tech stack badges using Iconify icons. Create beautiful, shareable markdown for your GitHub profile or documentation.",
   openGraph: {
     type: "website",
     url: "https://tech-stack-generator.vercel.app/",
     title: "Tech Stack Generator",
     description:
-      "This is a generator tool that creates customized Tech Stack from the Skillicons icon set in Markdown format.",
+      "Generate customized tech stack badges using Iconify icons. Create beautiful, shareable markdown for your GitHub profile or documentation.",
   },
 };
 
@@ -38,20 +27,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="grid grid-rows-[auto_1fr_auto] min-h-screen font-[family-name:var(--font-geist-sans)]">
-            <Header />
-            <main>{children} </main>
-            <Footer />
-          </div>
+          <NuqsAdapter>
+            <div className="grid grid-rows-[auto_1fr_auto] min-h-screen">
+              <Header />
+              <main>{children} </main>
+              <Footer />
+            </div>
+          </NuqsAdapter>
         </ThemeProvider>
         <Toaster />
         <Analytics />
