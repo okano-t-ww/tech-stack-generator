@@ -2,7 +2,7 @@ import { IconToggle } from "@/components/ui/icon-toggle";
 import { TooltipIconButton } from "@/components/ui/components/TooltipIconButton";
 import { Input } from "@/components/ui/input";
 import type { TechItem } from "@/types/tech";
-import { useTechSelectionData } from "@/lib/tech-stack/use-tech-selection-data";
+import { useTechSelectionData } from "@/hooks/tech-stack/use-tech-selection-data";
 
 interface TechSelectionPanelProps {
   filteredTech: TechItem[];

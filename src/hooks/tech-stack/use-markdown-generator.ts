@@ -1,48 +1,32 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { toast } from "@/lib/use-toast";
-import type { TechItem, TechCategory } from "@/types/tech";
+import type { TechItem } from "@/types/tech";
 import { TECH_STACK } from "@/data/tech-stack-data";
 
-type PerLine = 5 | 6 | 7 | 8 | 9 | 10;
-
-interface UseIconGridGeneratorProps {
+interface UseMarkdownGeneratorProps {
+  selectedTech: TechItem[];
+  includeTitle: boolean;
   title: string;
-  techList: TechItem[];
-  categories: TechCategory[];
 }
 
-export const useIconGridGenerator = ({
+interface UseMarkdownGeneratorReturn {
+  generatedMarkdown: string;
+  isCopied: boolean;
+  generateMarkdown: () => void;
+  copyToClipboard: () => void;
+}
+
+/**
+ * Hook for generating and copying markdown output
+ * Manages markdown generation state and clipboard operations
+ */
+export function useMarkdownGenerator({
+  selectedTech,
+  includeTitle,
   title,
-  techList,
-  categories,
-}: UseIconGridGeneratorProps) => {
-  const [selectedTech, setSelectedTech] = useState<TechItem[]>([]);
-  const [perLine, setPerLine] = useState<PerLine>(10);
+}: UseMarkdownGeneratorProps): UseMarkdownGeneratorReturn {
   const [generatedMarkdown, setGeneratedMarkdown] = useState<string>("");
   const [isCopied, setIsCopied] = useState(false);
-  const [includeTitle, setIncludeTitle] = useState(true);
-  const [searchKeyword, setSearchKeyword] = useState("");
-
-  const filteredTech = useMemo(() => {
-    const categoryFiltered = techList.filter((tech) =>
-      categories.includes(tech.category)
-    );
-    if (!searchKeyword) return categoryFiltered;
-    const keyword = searchKeyword.toLowerCase();
-    return categoryFiltered.filter((tech) =>
-      tech.name.toLowerCase().includes(keyword)
-    );
-  }, [techList, categories, searchKeyword]);
-
-  const selectedTechSet = useMemo(
-    () => new Set(selectedTech.map((tech) => tech.id)),
-    [selectedTech]
-  );
-
-  const selectedIconIds = useMemo(
-    () => selectedTech.map((tech) => tech.id),
-    [selectedTech]
-  );
 
   const generateMarkdown = useCallback(() => {
     const iconSize = 48;
@@ -93,40 +77,10 @@ export const useIconGridGenerator = ({
       });
   }, [generatedMarkdown]);
 
-  const handleTechToggle = useCallback((tech: TechItem) => {
-    setSelectedTech((prev) =>
-      prev.some((item) => item.id === tech.id)
-        ? prev.filter((item) => item.id !== tech.id)
-        : [...prev, tech]
-    );
-  }, []);
-
-  const handleSelectAll = useCallback(() => {
-    setSelectedTech((prev) =>
-      prev.length === filteredTech.length ? [] : filteredTech
-    );
-  }, [filteredTech]);
-
   return {
-    // State
-    selectedTech,
-    setSelectedTech,
-    perLine,
-    setPerLine,
     generatedMarkdown,
     isCopied,
-    includeTitle,
-    setIncludeTitle,
-    searchKeyword,
-    setSearchKeyword,
-    // Computed
-    filteredTech,
-    selectedTechSet,
-    selectedIconIds,
-    // Actions
     generateMarkdown,
     copyToClipboard,
-    handleTechToggle,
-    handleSelectAll,
   };
-};
+}

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "@/components/theme-provider";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
@@ -47,11 +48,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="grid grid-rows-[auto_1fr_auto] min-h-screen font-[family-name:var(--font-geist-sans)]">
-            <Header />
-            <main>{children} </main>
-            <Footer />
-          </div>
+          <NuqsAdapter>
+            <div className="grid grid-rows-[auto_1fr_auto] min-h-screen font-[family-name:var(--font-geist-sans)]">
+              <Header />
+              <main>{children} </main>
+              <Footer />
+            </div>
+          </NuqsAdapter>
         </ThemeProvider>
         <Toaster />
         <Analytics />

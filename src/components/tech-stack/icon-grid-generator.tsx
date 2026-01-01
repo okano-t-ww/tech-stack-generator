@@ -1,7 +1,7 @@
 "use client";
 
 import type { TechItem, TechCategory } from "@/types/tech";
-import { useIconGridGenerator } from "@/lib/tech-stack/use-icon-grid-generator";
+import { useIconGridGenerator } from "@/hooks/tech-stack/use-icon-grid-generator";
 import { PreviewControls } from "./preview-controls";
 import { TechSelectionPanel } from "./tech-selection-panel";
 import { PreviewPanel } from "./preview-panel";
