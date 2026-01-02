@@ -11,7 +11,5 @@ export const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
     return () => setMounted(false);
   }, []);
 
-  return (
-    mounted && <NextThemeProvider {...props}>{children}</NextThemeProvider>
-  );
+  return mounted && <NextThemeProvider {...props}>{children}</NextThemeProvider>;
 };

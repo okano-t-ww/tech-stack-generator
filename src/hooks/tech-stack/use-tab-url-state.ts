@@ -13,9 +13,7 @@ import {
 interface UseTabUrlStateReturn {
   state: TabUrlState;
   selectedTech: TechItem[];
-  setSelectedTech: (
-    updater: TechItem[] | ((prev: TechItem[]) => TechItem[])
-  ) => void;
+  setSelectedTech: (updater: TechItem[] | ((prev: TechItem[]) => TechItem[])) => void;
   setPerLine: (value: PerLine) => void;
   setIncludeTitle: (value: boolean) => void;
 }
@@ -40,11 +38,8 @@ export function useTabUrlState(tabPrefix: TabPrefix): UseTabUrlStateReturn {
     .filter(Boolean) as TechItem[];
 
   // Setters that update URL state
-  const setSelectedTech = (
-    updater: TechItem[] | ((prev: TechItem[]) => TechItem[])
-  ) => {
-    const newTech =
-      typeof updater === "function" ? updater(selectedTech) : updater;
+  const setSelectedTech = (updater: TechItem[] | ((prev: TechItem[]) => TechItem[])) => {
+    const newTech = typeof updater === "function" ? updater(selectedTech) : updater;
     const newIds = newTech.map((tech) => tech.id);
     setUrlState({ [`${tabPrefix}_selected`]: newIds });
   };

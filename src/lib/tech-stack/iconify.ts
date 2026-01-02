@@ -1,5 +1,5 @@
-import type { IconifyId, IconUrl, IconSize, TechItem } from '@/types/tech';
-import { validateIconSize } from '@/types/tech';
+import type { IconifyId, IconUrl, IconSize, TechItem } from "@/types/tech";
+import { validateIconSize } from "@/types/tech";
 
 /**
  * Iconify API連携サービス
@@ -7,7 +7,7 @@ import { validateIconSize } from '@/types/tech';
  * Iconifyアイコンの取得・検証機能を提供
  */
 
-const BASE_URL = 'https://api.iconify.design' as const;
+const BASE_URL = "https://api.iconify.design" as const;
 const DEFAULT_SIZE: IconSize = 48 as IconSize;
 
 /**
@@ -48,7 +48,10 @@ export const getIconUrlWithTheme = (
  * @param size - アイコンサイズ
  * @returns アイコンURL配列
  */
-export const getIconUrls = (iconifyIds: readonly IconifyId[], size?: IconSize): readonly IconUrl[] => {
+export const getIconUrls = (
+  iconifyIds: readonly IconifyId[],
+  size?: IconSize
+): readonly IconUrl[] => {
   return iconifyIds.map((id) => getIconUrl(id, size));
 };
 
@@ -61,7 +64,7 @@ export const getIconUrls = (iconifyIds: readonly IconifyId[], size?: IconSize): 
 export const validateIcon = async (iconifyId: IconifyId): Promise<boolean> => {
   try {
     const response = await fetch(`${BASE_URL}/${iconifyId}.svg`, {
-      method: 'HEAD',
+      method: "HEAD",
     });
     return response.ok;
   } catch {
@@ -79,10 +82,13 @@ export const validateIcons = async (
   iconifyIds: readonly IconifyId[]
 ): Promise<ReadonlyArray<{ readonly id: IconifyId; readonly isValid: boolean }>> => {
   const results = await Promise.all(
-    iconifyIds.map(async (id) => ({
-      id,
-      isValid: await validateIcon(id),
-    } as const))
+    iconifyIds.map(
+      async (id) =>
+        ({
+          id,
+          isValid: await validateIcon(id),
+        }) as const
+    )
   );
   return results;
 };

@@ -1,5 +1,11 @@
 {
-  "cSpell.words": [
-    "nuqs"
-  ]
+  "cSpell.words": ["nuqs", "oxfmt", "oxlint"],
+  "eslint.enable": false,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "explicit"
+  },
+  "oxc.enable": true,
+  "oxc.trace.server": "off"
 }

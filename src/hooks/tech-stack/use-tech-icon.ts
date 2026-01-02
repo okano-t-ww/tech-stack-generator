@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo } from "react";
 import * as TechStackService from "@/lib/tech-stack/service";
 import * as IconifyService from "@/lib/tech-stack/iconify";
 import type { TechId, IconSize } from "@/types/tech";
@@ -10,10 +10,7 @@ import { isSome, toNullable } from "@/lib/fp-types";
  * Tech IDからアイコン情報を取得
  */
 export function useTechIcon(techId: TechId, size: IconSize = 48 as IconSize) {
-  const techOption = useMemo(
-    () => TechStackService.getById(techId),
-    [techId]
-  );
+  const techOption = useMemo(() => TechStackService.getById(techId), [techId]);
 
   const iconUrl = useMemo(() => {
     if (isSome(techOption)) {

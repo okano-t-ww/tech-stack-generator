@@ -20,11 +20,7 @@ export const IconToggle = React.forwardRef<HTMLButtonElement, IconToggleProps>(
         ref={ref}
         pressed={pressed}
         onClick={onClick}
-        className={cn(
-          "text-xs gap-1.5 h-7",
-          pressed && "ring-1 ring-primary",
-          className
-        )}
+        className={cn("text-xs gap-1.5 h-7", pressed && "ring-1 ring-primary", className)}
       >
         <Icon icon={icon} width={16} height={16} />
         <span>{label}</span>

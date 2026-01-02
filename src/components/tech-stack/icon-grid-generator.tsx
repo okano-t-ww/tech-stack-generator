@@ -17,11 +17,7 @@ export interface IconGridGeneratorProps {
   categories: TechCategory[];
 }
 
-export default function IconGridGenerator({
-  title,
-  techList,
-  categories,
-}: IconGridGeneratorProps) {
+export default function IconGridGenerator({ title, techList, categories }: IconGridGeneratorProps) {
   const tabPrefix = getTabPrefix(title);
 
   if (!tabPrefix) {
@@ -39,24 +35,18 @@ export default function IconGridGenerator({
   });
 
   // Tech selection actions
-  const {
-    selectedTechSet,
-    selectedIconIds,
-    handleTechToggle,
-    handleSelectAll,
-  } = useTechSelection({
+  const { selectedTechSet, selectedIconIds, handleTechToggle, handleSelectAll } = useTechSelection({
     selectedTech,
     setSelectedTech,
     filteredTech,
   });
 
   // Markdown generation
-  const { generatedMarkdown, isCopied, generateMarkdown, copyToClipboard } =
-    useMarkdownGenerator({
-      selectedTech,
-      includeTitle: state.includeTitle,
-      title,
-    });
+  const { generatedMarkdown, isCopied, generateMarkdown, copyToClipboard } = useMarkdownGenerator({
+    selectedTech,
+    includeTitle: state.includeTitle,
+    title,
+  });
 
   return (
     <div className="space-y-3">
