@@ -2,9 +2,7 @@ import type { TechItem } from "@/types/tech";
 
 interface UseTechSelectionProps {
   selectedTech: TechItem[];
-  setSelectedTech: (
-    updater: TechItem[] | ((prev: TechItem[]) => TechItem[])
-  ) => void;
+  setSelectedTech: (updater: TechItem[] | ((prev: TechItem[]) => TechItem[])) => void;
   filteredTech: TechItem[];
 }
 
@@ -36,9 +34,7 @@ export function useTechSelection({
   };
 
   const handleSelectAll = () => {
-    setSelectedTech((prev) =>
-      prev.length === filteredTech.length ? [] : filteredTech
-    );
+    setSelectedTech((prev) => (prev.length === filteredTech.length ? [] : filteredTech));
   };
 
   return {

@@ -42,8 +42,7 @@ export function useMarkdownGenerator({
       })
       .join(" ");
 
-    const titleSection =
-      includeTitle && title !== "All" ? `### ${title}\n\n` : "";
+    const titleSection = includeTitle && title !== "All" ? `### ${title}\n\n` : "";
     const markdown = `${titleSection}<p align="center">\n  ${icons}\n</p>`;
     setGeneratedMarkdown(markdown);
   };

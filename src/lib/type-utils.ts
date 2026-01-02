@@ -25,9 +25,7 @@ export type ValueOf<T> = T[keyof T];
  * const config = { api: { url: "https://example.com" } } as const;
  * type ConfigValue = DeepValueOf<typeof config>; // "https://example.com"
  */
-export type DeepValueOf<T> = T extends object
-  ? ValueOf<{ [K in keyof T]: DeepValueOf<T[K]> }>
-  : T;
+export type DeepValueOf<T> = T extends object ? ValueOf<{ [K in keyof T]: DeepValueOf<T[K]> }> : T;
 
 // ============================================
 // 排他的union型
@@ -90,9 +88,7 @@ export type OrOf<T> = NonNullable<
  * // OK: {}
  * // NG: { username: "user" }
  */
-export type AllOrNone<T> =
-  | { [K in keyof T]: T[K] | undefined }
-  | { [K in keyof T]?: never };
+export type AllOrNone<T> = { [K in keyof T]: T[K] | undefined } | { [K in keyof T]?: never };
 
 /**
  * RequiredButPossiblyUndefined - すべて必須だが値はundefined可
@@ -163,10 +159,7 @@ export type NonEmptyArray<T> = [T, ...T[]];
  * @example
  * type First = Head<[1, 2, 3]>; // 1
  */
-export type Head<T extends readonly unknown[]> = T extends readonly [
-  infer H,
-  ...unknown[]
-]
+export type Head<T extends readonly unknown[]> = T extends readonly [infer H, ...unknown[]]
   ? H
   : never;
 
@@ -176,10 +169,7 @@ export type Head<T extends readonly unknown[]> = T extends readonly [
  * @example
  * type Rest = Tail<[1, 2, 3]>; // [2, 3]
  */
-export type Tail<T extends readonly unknown[]> = T extends readonly [
-  unknown,
-  ...infer R
-]
+export type Tail<T extends readonly unknown[]> = T extends readonly [unknown, ...infer R]
   ? R
   : never;
 
@@ -193,10 +183,9 @@ export type Tail<T extends readonly unknown[]> = T extends readonly [
  * @example
  * type IconParts = Split<"logos:react", ":">; // ["logos", "react"]
  */
-export type Split<
-  S extends string,
-  D extends string
-> = S extends `${infer T}${D}${infer U}` ? [T, ...Split<U, D>] : [S];
+export type Split<S extends string, D extends string> = S extends `${infer T}${D}${infer U}`
+  ? [T, ...Split<U, D>]
+  : [S];
 
 /**
  * StartsWith - 文字列が特定のプレフィックスで始まるか
@@ -218,9 +207,7 @@ export type StartsWith<S extends string, P extends string> = S extends `${P}${st
  * @example
  * type Result = If<true, "yes", "no">; // "yes"
  */
-export type If<Condition extends boolean, Then, Else> = Condition extends true
-  ? Then
-  : Else;
+export type If<Condition extends boolean, Then, Else> = Condition extends true ? Then : Else;
 
 /**
  * IsNever - never型かどうかを判定
@@ -262,10 +249,7 @@ export type Prettify<T> = {
  * type StringKeys = PickByValue<{ a: string; b: number; c: string }, string>;
  * // { a: string; c: string }
  */
-export type PickByValue<T, V> = Pick<
-  T,
-  { [K in keyof T]: T[K] extends V ? K : never }[keyof T]
->;
+export type PickByValue<T, V> = Pick<T, { [K in keyof T]: T[K] extends V ? K : never }[keyof T]>;
 
 /**
  * OmitByValue - 特定の値の型を持つキーを除外
@@ -274,7 +258,4 @@ export type PickByValue<T, V> = Pick<
  * type NoStrings = OmitByValue<{ a: string; b: number; c: string }, string>;
  * // { b: number }
  */
-export type OmitByValue<T, V> = Pick<
-  T,
-  { [K in keyof T]: T[K] extends V ? never : K }[keyof T]
->;
+export type OmitByValue<T, V> = Pick<T, { [K in keyof T]: T[K] extends V ? never : K }[keyof T]>;

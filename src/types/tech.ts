@@ -7,11 +7,9 @@ import { z } from "zod";
 const TechIdSchema = z.string().min(1);
 export type TechId = z.infer<typeof TechIdSchema>;
 
-const IconifyIdSchema = z
-  .string()
-  .regex(/^(logos|simple-icons|devicon):[a-z0-9-]+$/, {
-    message: "Iconify ID must be in format 'prefix:icon-name'",
-  });
+const IconifyIdSchema = z.string().regex(/^(logos|simple-icons|devicon):[a-z0-9-]+$/, {
+  message: "Iconify ID must be in format 'prefix:icon-name'",
+});
 export type IconifyId = z.infer<typeof IconifyIdSchema>;
 
 const TechLinkSchema = z.string().url();
@@ -68,13 +66,8 @@ export type PerLine = 5 | 6 | 7 | 8 | 9 | 10;
 // ============================================
 
 export const validateTechId = (id: string): TechId => TechIdSchema.parse(id);
-export const validateIconifyId = (id: string): IconifyId =>
-  IconifyIdSchema.parse(id);
-export const validateTechLink = (url: string): TechLink =>
-  TechLinkSchema.parse(url);
-export const validateIconUrl = (url: string): IconUrl =>
-  IconUrlSchema.parse(url);
-export const validateIconSize = (size: number): IconSize =>
-  IconSizeSchema.parse(size);
-export const validateTechItem = (item: unknown): TechItem =>
-  TechItemSchema.parse(item);
+export const validateIconifyId = (id: string): IconifyId => IconifyIdSchema.parse(id);
+export const validateTechLink = (url: string): TechLink => TechLinkSchema.parse(url);
+export const validateIconUrl = (url: string): IconUrl => IconUrlSchema.parse(url);
+export const validateIconSize = (size: number): IconSize => IconSizeSchema.parse(size);
+export const validateTechItem = (item: unknown): TechItem => TechItemSchema.parse(item);

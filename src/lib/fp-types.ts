@@ -12,7 +12,7 @@
  * 成功を表す型
  */
 export interface Success<T> {
-  readonly _tag: 'Success';
+  readonly _tag: "Success";
   readonly value: T;
 }
 
@@ -20,7 +20,7 @@ export interface Success<T> {
  * 失敗を表す型
  */
 export interface Failure<E> {
-  readonly _tag: 'Failure';
+  readonly _tag: "Failure";
   readonly error: E;
 }
 
@@ -35,7 +35,7 @@ export type Result<T, E = Error> = Success<T> | Failure<E>;
  * 成功値を生成
  */
 export const success = <T>(value: T): Success<T> => ({
-  _tag: 'Success',
+  _tag: "Success",
   value,
 });
 
@@ -43,7 +43,7 @@ export const success = <T>(value: T): Success<T> => ({
  * 失敗値を生成
  */
 export const failure = <E>(error: E): Failure<E> => ({
-  _tag: 'Failure',
+  _tag: "Failure",
   error,
 });
 
@@ -51,21 +51,18 @@ export const failure = <E>(error: E): Failure<E> => ({
  * Result型が成功かどうかを判定
  */
 export const isSuccess = <T, E>(result: Result<T, E>): result is Success<T> =>
-  result._tag === 'Success';
+  result._tag === "Success";
 
 /**
  * Result型が失敗かどうかを判定
  */
 export const isFailure = <T, E>(result: Result<T, E>): result is Failure<E> =>
-  result._tag === 'Failure';
+  result._tag === "Failure";
 
 /**
  * Result型の値をマッピング
  */
-export const mapResult = <T, U, E>(
-  result: Result<T, E>,
-  fn: (value: T) => U
-): Result<U, E> => {
+export const mapResult = <T, U, E>(result: Result<T, E>, fn: (value: T) => U): Result<U, E> => {
   if (isSuccess(result)) {
     return success(fn(result.value));
   }
@@ -75,10 +72,7 @@ export const mapResult = <T, U, E>(
 /**
  * Result型のエラーをマッピング
  */
-export const mapError = <T, E, F>(
-  result: Result<T, E>,
-  fn: (error: E) => F
-): Result<T, F> => {
+export const mapError = <T, E, F>(result: Result<T, E>, fn: (error: E) => F): Result<T, F> => {
   if (isFailure(result)) {
     return failure(fn(result.error));
   }
@@ -101,10 +95,7 @@ export const flatMapResult = <T, U, E>(
 /**
  * Result型から値を取り出す（失敗時はデフォルト値）
  */
-export const getOrElse = <T, E>(
-  result: Result<T, E>,
-  defaultValue: T
-): T => {
+export const getOrElse = <T, E>(result: Result<T, E>, defaultValue: T): T => {
   if (isSuccess(result)) {
     return result.value;
   }
@@ -135,7 +126,7 @@ export const matchResult = <T, E, U>(
  * 値が存在することを表す型
  */
 export interface Some<T> {
-  readonly _tag: 'Some';
+  readonly _tag: "Some";
   readonly value: T;
 }
 
@@ -143,7 +134,7 @@ export interface Some<T> {
  * 値が存在しないことを表す型
  */
 export interface None {
-  readonly _tag: 'None';
+  readonly _tag: "None";
 }
 
 /**
@@ -157,7 +148,7 @@ export type Option<T> = Some<T> | None;
  * 値を持つOptionを生成
  */
 export const some = <T>(value: T): Some<T> => ({
-  _tag: 'Some',
+  _tag: "Some",
   value,
 });
 
@@ -165,7 +156,7 @@ export const some = <T>(value: T): Some<T> => ({
  * 値を持たないOptionを生成
  */
 export const none: None = {
-  _tag: 'None',
+  _tag: "None",
 };
 
 /**
@@ -181,22 +172,17 @@ export const fromNullable = <T>(value: T | null | undefined): Option<T> => {
 /**
  * Option型が値を持つかどうかを判定
  */
-export const isSome = <T>(option: Option<T>): option is Some<T> =>
-  option._tag === 'Some';
+export const isSome = <T>(option: Option<T>): option is Some<T> => option._tag === "Some";
 
 /**
  * Option型が値を持たないかどうかを判定
  */
-export const isNone = <T>(option: Option<T>): option is None =>
-  option._tag === 'None';
+export const isNone = <T>(option: Option<T>): option is None => option._tag === "None";
 
 /**
  * Option型の値をマッピング
  */
-export const mapOption = <T, U>(
-  option: Option<T>,
-  fn: (value: T) => U
-): Option<U> => {
+export const mapOption = <T, U>(option: Option<T>, fn: (value: T) => U): Option<U> => {
   if (isSome(option)) {
     return some(fn(option.value));
   }
@@ -206,10 +192,7 @@ export const mapOption = <T, U>(
 /**
  * Option型をflatMapで連鎖
  */
-export const flatMapOption = <T, U>(
-  option: Option<T>,
-  fn: (value: T) => Option<U>
-): Option<U> => {
+export const flatMapOption = <T, U>(option: Option<T>, fn: (value: T) => Option<U>): Option<U> => {
   if (isSome(option)) {
     return fn(option.value);
   }
@@ -270,9 +253,7 @@ export const tryCatch = <T>(fn: () => T): Result<T, Error> => {
 /**
  * 非同期例外をキャッチしてResult型に変換
  */
-export const tryCatchAsync = async <T>(
-  fn: () => Promise<T>
-): Promise<Result<T, Error>> => {
+export const tryCatchAsync = async <T>(fn: () => Promise<T>): Promise<Result<T, Error>> => {
   try {
     const value = await fn();
     return success(value);

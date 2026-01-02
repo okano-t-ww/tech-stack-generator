@@ -1,4 +1,4 @@
-import type { TechId, TechItem } from "@/types/tech";
+import type { TechItem } from "@/types/tech";
 import { TechCategory } from "@/types/tech";
 
 /**
@@ -10,19 +10,19 @@ import { TechCategory } from "@/types/tech";
  * @see https://icon-sets.iconify.design/ for available icons
  */
 export const TECH_STACK = {
-  "adonis": {
+  adonis: {
     id: "adonis",
     name: "AdonisJS",
     category: TechCategory.Framework,
     iconify: "logos:adonisjs-icon",
   },
-  "alpinejs": {
+  alpinejs: {
     id: "alpinejs",
     name: "Alpine.js",
     category: TechCategory.Framework,
     iconify: "logos:alpinejs-icon",
   },
-  "angular": {
+  angular: {
     id: "angular",
     name: "Angular",
     category: TechCategory.Framework,
@@ -30,38 +30,38 @@ export const TECH_STACK = {
     iconifyDark: "logos:angular-icon-dark",
     link: "https://angular.io/",
   },
-  "ansible": {
+  ansible: {
     id: "ansible",
     name: "Ansible",
     category: TechCategory.Platform,
     iconify: "logos:ansible",
     link: "https://www.ansible.com/",
   },
-  "apple": {
+  apple: {
     id: "apple",
     name: "Apple",
     category: TechCategory.Platform,
     iconify: "logos:apple",
   },
-  "appwrite": {
+  appwrite: {
     id: "appwrite",
     name: "Appwrite",
     category: TechCategory.Cloud,
     iconify: "logos:appwrite",
   },
-  "arch": {
+  arch: {
     id: "arch",
     name: "Arch Linux",
     category: TechCategory.Platform,
     iconify: "logos:archlinux",
   },
-  "arduino": {
+  arduino: {
     id: "arduino",
     name: "Arduino",
     category: TechCategory.Platform,
     iconify: "logos:arduino",
   },
-  "astro": {
+  astro: {
     id: "astro",
     name: "Astro",
     category: TechCategory.Framework,
@@ -69,281 +69,281 @@ export const TECH_STACK = {
     iconifyDark: "logos:astro-icon-dark",
     link: "https://astro.build/",
   },
-  "atom": {
+  atom: {
     id: "atom",
     name: "Atom",
     category: TechCategory.Platform,
     iconify: "logos:atom",
   },
-  "aws": {
+  aws: {
     id: "aws",
     name: "Amazon Web Services",
     category: TechCategory.Cloud,
     iconify: "logos:aws",
     link: "https://aws.amazon.com/",
   },
-  "azure": {
+  azure: {
     id: "azure",
     name: "Microsoft Azure",
     category: TechCategory.Cloud,
     iconify: "logos:azure",
     link: "https://azure.microsoft.com/",
   },
-  "babel": {
+  babel: {
     id: "babel",
     name: "Babel",
     category: TechCategory.Library,
     iconify: "logos:babel",
     link: "https://babeljs.io/",
   },
-  "bash": {
+  bash: {
     id: "bash",
     name: "Bash",
     category: TechCategory.Language,
     iconify: "logos:bash",
     link: "https://www.gnu.org/software/bash/",
   },
-  "bitbucket": {
+  bitbucket: {
     id: "bitbucket",
     name: "Bitbucket",
     category: TechCategory.CICD,
     iconify: "logos:bitbucket",
   },
-  "blender": {
+  blender: {
     id: "blender",
     name: "Blender",
     category: TechCategory.Other,
     iconify: "logos:blender",
   },
-  "bootstrap": {
+  bootstrap: {
     id: "bootstrap",
     name: "Bootstrap",
     category: TechCategory.Library,
     iconify: "logos:bootstrap",
     link: "https://getbootstrap.com/",
   },
-  "bsd": {
+  bsd: {
     id: "bsd",
     name: "BSD",
     category: TechCategory.Platform,
     iconify: "logos:freebsd",
   },
-  "bun": {
+  bun: {
     id: "bun",
     name: "Bun",
     category: TechCategory.Platform,
     iconify: "logos:bun",
     link: "https://bun.sh/",
   },
-  "c": {
+  c: {
     id: "c",
     name: "C",
     category: TechCategory.Language,
     iconify: "logos:c",
     link: "https://en.cppreference.com/w/c",
   },
-  "cs": {
+  cs: {
     id: "cs",
     name: "C#",
     category: TechCategory.Language,
     iconify: "logos:c-sharp",
     link: "https://docs.microsoft.com/en-us/dotnet/csharp/",
   },
-  "cpp": {
+  cpp: {
     id: "cpp",
     name: "C++",
     category: TechCategory.Language,
     iconify: "logos:c-plusplus",
     link: "https://en.cppreference.com/w/cpp",
   },
-  "crystal": {
+  crystal: {
     id: "crystal",
     name: "Crystal",
     category: TechCategory.Language,
     iconify: "logos:crystal",
   },
-  "clion": {
+  clion: {
     id: "clion",
     name: "CLion",
     category: TechCategory.Platform,
     iconify: "logos:clion",
   },
-  "clojure": {
+  clojure: {
     id: "clojure",
     name: "Clojure",
     category: TechCategory.Language,
     iconify: "logos:clojure",
     link: "https://clojure.org/",
   },
-  "cloudflare": {
+  cloudflare: {
     id: "cloudflare",
     name: "Cloudflare",
     category: TechCategory.Cloud,
     iconify: "logos:cloudflare",
     link: "https://www.cloudflare.com/",
   },
-  "codepen": {
+  codepen: {
     id: "codepen",
     name: "CodePen",
     category: TechCategory.Platform,
     iconify: "logos:codepen",
   },
-  "coffeescript": {
+  coffeescript: {
     id: "coffeescript",
     name: "CoffeeScript",
     category: TechCategory.Language,
     iconify: "logos:coffeescript",
   },
-  "css": {
+  css: {
     id: "css",
     name: "CSS",
     category: TechCategory.Language,
     iconify: "logos:css-3",
     link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
-  "cypress": {
+  cypress: {
     id: "cypress",
     name: "Cypress",
     category: TechCategory.Library,
     iconify: "logos:cypress-icon",
     link: "https://www.cypress.io/",
   },
-  "dart": {
+  dart: {
     id: "dart",
     name: "Dart",
     category: TechCategory.Language,
     iconify: "logos:dart",
     link: "https://dart.dev/",
   },
-  "debian": {
+  debian: {
     id: "debian",
     name: "Debian",
     category: TechCategory.Platform,
     iconify: "logos:debian",
     link: "https://www.debian.org/",
   },
-  "deno": {
+  deno: {
     id: "deno",
     name: "Deno",
     category: TechCategory.Platform,
     iconify: "logos:deno",
   },
-  "discordjs": {
+  discordjs: {
     id: "discordjs",
     name: "Discord.js",
     category: TechCategory.Library,
     iconify: "logos:discord",
   },
-  "django": {
+  django: {
     id: "django",
     name: "Django",
     category: TechCategory.Framework,
     iconify: "logos:django-icon",
     link: "https://www.djangoproject.com/",
   },
-  "docker": {
+  docker: {
     id: "docker",
     name: "Docker",
     category: TechCategory.Platform,
     iconify: "logos:docker-icon",
     link: "https://www.docker.com/",
   },
-  "dotnet": {
+  dotnet: {
     id: "dotnet",
     name: ".NET",
     category: TechCategory.Framework,
     iconify: "logos:dotnet",
   },
-  "dynamodb": {
+  dynamodb: {
     id: "dynamodb",
     name: "Amazon DynamoDB",
     category: TechCategory.Database,
     iconify: "logos:aws-dynamodb",
     link: "https://aws.amazon.com/dynamodb/",
   },
-  "elasticsearch": {
+  elasticsearch: {
     id: "elasticsearch",
     name: "Elasticsearch",
     category: TechCategory.Database,
     iconify: "logos:elasticsearch",
     link: "https://www.elastic.co/",
   },
-  "electron": {
+  electron: {
     id: "electron",
     name: "Electron",
     category: TechCategory.Framework,
     iconify: "logos:electron",
     link: "https://www.electronjs.org/",
   },
-  "ember": {
+  ember: {
     id: "ember",
     name: "Ember.js",
     category: TechCategory.Framework,
     iconify: "logos:ember",
   },
-  "express": {
+  express: {
     id: "express",
     name: "Express.js",
     category: TechCategory.Framework,
     iconify: "logos:express",
     link: "https://expressjs.com/",
   },
-  "fastapi": {
+  fastapi: {
     id: "fastapi",
     name: "FastAPI",
     category: TechCategory.Framework,
     iconify: "logos:fastapi",
     link: "https://fastapi.tiangolo.com/",
   },
-  "figma": {
+  figma: {
     id: "figma",
     name: "Figma",
     category: TechCategory.Other,
     iconify: "logos:figma",
     link: "https://www.figma.com/",
   },
-  "firebase": {
+  firebase: {
     id: "firebase",
     name: "Firebase",
     category: TechCategory.Cloud,
     iconify: "logos:firebase-icon",
     link: "https://firebase.google.com/",
   },
-  "flask": {
+  flask: {
     id: "flask",
     name: "Flask",
     category: TechCategory.Framework,
     iconify: "logos:flask",
     link: "https://flask.palletsprojects.com/",
   },
-  "flutter": {
+  flutter: {
     id: "flutter",
     name: "Flutter",
     category: TechCategory.Framework,
     iconify: "logos:flutter",
     link: "https://flutter.dev/",
   },
-  "fortran": {
+  fortran: {
     id: "fortran",
     name: "Fortran",
     category: TechCategory.Language,
     iconify: "logos:fortran",
   },
-  "gatsby": {
+  gatsby: {
     id: "gatsby",
     name: "Gatsby",
     category: TechCategory.Framework,
     iconify: "logos:gatsby",
     link: "https://www.gatsbyjs.com/",
   },
-  "git": {
+  git: {
     id: "git",
     name: "Git",
     category: TechCategory.Other,
     iconify: "logos:git-icon",
     link: "https://git-scm.com/",
   },
-  "github": {
+  github: {
     id: "github",
     name: "GitHub",
     category: TechCategory.Other,
@@ -351,7 +351,7 @@ export const TECH_STACK = {
     iconifyDark: "logos:github-icon-dark",
     link: "https://github.com/",
   },
-  "gitlab": {
+  gitlab: {
     id: "gitlab",
     name: "GitLab",
     category: TechCategory.Other,
@@ -359,212 +359,212 @@ export const TECH_STACK = {
     iconifyDark: "logos:gitlab-icon-dark",
     link: "https://about.gitlab.com/",
   },
-  "go": {
+  go: {
     id: "go",
     name: "Go",
     category: TechCategory.Language,
     iconify: "logos:go",
     link: "https://go.dev/",
   },
-  "gradle": {
+  gradle: {
     id: "gradle",
     name: "Gradle",
     category: TechCategory.BuildTool,
     iconify: "logos:gradle",
   },
-  "grafana": {
+  grafana: {
     id: "grafana",
     name: "Grafana",
     category: TechCategory.Other,
     iconify: "logos:grafana",
     link: "https://grafana.com/",
   },
-  "graphql": {
+  graphql: {
     id: "graphql",
     name: "GraphQL",
     category: TechCategory.Language,
     iconify: "logos:graphql",
     link: "https://graphql.org/",
   },
-  "gulp": {
+  gulp: {
     id: "gulp",
     name: "Gulp",
     category: TechCategory.BuildTool,
     iconify: "logos:gulp",
   },
-  "haskell": {
+  haskell: {
     id: "haskell",
     name: "Haskell",
     category: TechCategory.Language,
     iconify: "logos:haskell",
     link: "https://www.haskell.org/",
   },
-  "haxe": {
+  haxe: {
     id: "haxe",
     name: "Haxe",
     category: TechCategory.Language,
     iconify: "logos:haxe",
   },
-  "heroku": {
+  heroku: {
     id: "heroku",
     name: "Heroku",
     category: TechCategory.Cloud,
     iconify: "logos:heroku-icon",
     link: "https://www.heroku.com/",
   },
-  "hibernate": {
+  hibernate: {
     id: "hibernate",
     name: "Hibernate",
     category: TechCategory.Framework,
     iconify: "logos:hibernate",
   },
-  "html": {
+  html: {
     id: "html",
     name: "HTML",
     category: TechCategory.Language,
     iconify: "logos:html-5",
     link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
-  "htmx": {
+  htmx: {
     id: "htmx",
     name: "htmx",
     category: TechCategory.Framework,
     iconify: "logos:htmx",
   },
-  "instagram": {
+  instagram: {
     id: "instagram",
     name: "Instagram",
     category: TechCategory.Other,
     iconify: "logos:instagram",
   },
-  "java": {
+  java: {
     id: "java",
     name: "Java",
     category: TechCategory.Language,
     iconify: "logos:java",
     link: "https://www.java.com/",
   },
-  "js": {
+  js: {
     id: "js",
     name: "JavaScript",
     category: TechCategory.Language,
     iconify: "logos:javascript",
   },
-  "jenkins": {
+  jenkins: {
     id: "jenkins",
     name: "Jenkins",
     category: TechCategory.CICD,
     iconify: "logos:jenkins",
     link: "https://www.jenkins.io/",
   },
-  "jest": {
+  jest: {
     id: "jest",
     name: "Jest",
     category: TechCategory.Other,
     iconify: "logos:jest",
     link: "https://jestjs.io/",
   },
-  "jquery": {
+  jquery: {
     id: "jquery",
     name: "jQuery",
     category: TechCategory.Library,
     iconify: "logos:jquery",
   },
-  "kotlin": {
+  kotlin: {
     id: "kotlin",
     name: "Kotlin",
     category: TechCategory.Language,
     iconify: "logos:kotlin",
     link: "https://kotlinlang.org/",
   },
-  "ktor": {
+  ktor: {
     id: "ktor",
     name: "Ktor",
     category: TechCategory.Framework,
     iconify: "logos:ktor",
   },
-  "kubernetes": {
+  kubernetes: {
     id: "kubernetes",
     name: "Kubernetes",
     category: TechCategory.Other,
     iconify: "logos:kubernetes",
     link: "https://kubernetes.io/",
   },
-  "laravel": {
+  laravel: {
     id: "laravel",
     name: "Laravel",
     category: TechCategory.Framework,
     iconify: "logos:laravel",
     link: "https://laravel.com/",
   },
-  "less": {
+  less: {
     id: "less",
     name: "LESS",
     category: TechCategory.Language,
     iconify: "logos:less",
     link: "https://lesscss.org/",
   },
-  "lit": {
+  lit: {
     id: "lit",
     name: "Lit",
     category: TechCategory.Framework,
     iconify: "logos:lit",
   },
-  "lua": {
+  lua: {
     id: "lua",
     name: "Lua",
     category: TechCategory.Language,
     iconify: "logos:lua",
     link: "https://www.lua.org/",
   },
-  "md": {
+  md: {
     id: "md",
     name: "Markdown (MD)",
     category: TechCategory.Language,
     iconify: "logos:markdown",
   },
-  "mastodon": {
+  mastodon: {
     id: "mastodon",
     name: "Mastodon",
     category: TechCategory.Other,
     iconify: "logos:mastodon",
   },
-  "mongodb": {
+  mongodb: {
     id: "mongodb",
     name: "MongoDB",
     category: TechCategory.Database,
     iconify: "logos:mongodb-icon",
     link: "https://www.mongodb.com/",
   },
-  "mysql": {
+  mysql: {
     id: "mysql",
     name: "MySQL",
     category: TechCategory.Database,
     iconify: "logos:mysql",
     link: "https://www.mysql.com/",
   },
-  "neovim": {
+  neovim: {
     id: "neovim",
     name: "Neovim",
     category: TechCategory.Platform,
     iconify: "logos:neovim",
     link: "https://neovim.io/",
   },
-  "nestjs": {
+  nestjs: {
     id: "nestjs",
     name: "NestJS",
     category: TechCategory.Framework,
     iconify: "logos:nestjs",
     link: "https://nestjs.com/",
   },
-  "netlify": {
+  netlify: {
     id: "netlify",
     name: "Netlify",
     category: TechCategory.Cloud,
     iconify: "logos:netlify-icon",
     link: "https://www.netlify.com/",
   },
-  "nextjs": {
+  nextjs: {
     id: "nextjs",
     name: "Next.js",
     category: TechCategory.Framework,
@@ -572,34 +572,34 @@ export const TECH_STACK = {
     iconifyDark: "logos:nextjs-icon-dark",
     link: "https://nextjs.org/",
   },
-  "nginx": {
+  nginx: {
     id: "nginx",
     name: "NGINX",
     category: TechCategory.Other,
     iconify: "logos:nginx",
     link: "https://nginx.org/",
   },
-  "nodejs": {
+  nodejs: {
     id: "nodejs",
     name: "Node.js",
     category: TechCategory.Platform,
     iconify: "logos:nodejs-icon",
     link: "https://nodejs.org/",
   },
-  "notion": {
+  notion: {
     id: "notion",
     name: "Notion",
     category: TechCategory.Other,
     iconify: "logos:notion",
   },
-  "npm": {
+  npm: {
     id: "npm",
     name: "npm",
     category: TechCategory.BuildTool,
     iconify: "logos:npm-icon",
     link: "https://www.npmjs.com/",
   },
-  "nuxtjs": {
+  nuxtjs: {
     id: "nuxtjs",
     name: "Nuxt.js",
     category: TechCategory.Framework,
@@ -607,159 +607,159 @@ export const TECH_STACK = {
     iconifyDark: "logos:nuxt-icon-dark",
     link: "https://nuxt.com/",
   },
-  "obsidian": {
+  obsidian: {
     id: "obsidian",
     name: "Obsidian",
     category: TechCategory.Other,
     iconify: "logos:obsidian",
   },
-  "ocaml": {
+  ocaml: {
     id: "ocaml",
     name: "OCaml",
     category: TechCategory.Language,
     iconify: "logos:ocaml",
   },
-  "openstack": {
+  openstack: {
     id: "openstack",
     name: "OpenStack",
     category: TechCategory.Cloud,
     iconify: "logos:openstack",
   },
-  "p5js": {
+  p5js: {
     id: "p5js",
     name: "p5.js",
     category: TechCategory.Library,
     iconify: "logos:p5js",
   },
-  "perl": {
+  perl: {
     id: "perl",
     name: "Perl",
     category: TechCategory.Language,
     iconify: "logos:perl",
     link: "https://www.perl.org/",
   },
-  "php": {
+  php: {
     id: "php",
     name: "PHP",
     category: TechCategory.Language,
     iconify: "logos:php",
     link: "https://www.php.net/",
   },
-  "phpstorm": {
+  phpstorm: {
     id: "phpstorm",
     name: "PhpStorm",
     category: TechCategory.Platform,
     iconify: "logos:phpstorm",
     link: "https://www.jetbrains.com/phpstorm/",
   },
-  "pinia": {
+  pinia: {
     id: "pinia",
     name: "Pinia",
     category: TechCategory.Library,
     iconify: "logos:pinia",
   },
-  "planetscale": {
+  planetscale: {
     id: "planetscale",
     name: "PlanetScale",
     category: TechCategory.Database,
     iconify: "logos:planetscale",
     link: "https://planetscale.com/",
   },
-  "pnpm": {
+  pnpm: {
     id: "pnpm",
     name: "pnpm",
     category: TechCategory.Other,
     iconify: "logos:pnpm",
     link: "https://pnpm.io/",
   },
-  "postgres": {
+  postgres: {
     id: "postgres",
     name: "PostgreSQL",
     category: TechCategory.Database,
     iconify: "logos:postgresql",
     link: "https://www.postgresql.org/",
   },
-  "postman": {
+  postman: {
     id: "postman",
     name: "Postman",
     category: TechCategory.Other,
     iconify: "logos:postman",
     link: "https://www.postman.com/",
   },
-  "prisma": {
+  prisma: {
     id: "prisma",
     name: "Prisma",
     category: TechCategory.Library,
     iconify: "logos:prisma",
     link: "https://www.prisma.io/",
   },
-  "processing": {
+  processing: {
     id: "processing",
     name: "Processing",
     category: TechCategory.Language,
     iconify: "logos:processing",
   },
-  "prometheus": {
+  prometheus: {
     id: "prometheus",
     name: "Prometheus",
     category: TechCategory.Other,
     iconify: "logos:prometheus",
     link: "https://prometheus.io/",
   },
-  "pug": {
+  pug: {
     id: "pug",
     name: "Pug",
     category: TechCategory.Language,
     iconify: "logos:pug",
   },
-  "pycharm": {
+  pycharm: {
     id: "pycharm",
     name: "PyCharm",
     category: TechCategory.Platform,
     iconify: "logos:pycharm",
     link: "https://www.jetbrains.com/pycharm/",
   },
-  "py": {
+  py: {
     id: "py",
     name: "Python",
     category: TechCategory.Language,
     iconify: "logos:python",
   },
-  "pytorch": {
+  pytorch: {
     id: "pytorch",
     name: "PyTorch",
     category: TechCategory.Library,
     iconify: "logos:pytorch",
     link: "https://pytorch.org/",
   },
-  "qt": {
+  qt: {
     id: "qt",
     name: "Qt",
     category: TechCategory.Framework,
     iconify: "logos:qt",
   },
-  "r": {
+  r: {
     id: "r",
     name: "R",
     category: TechCategory.Language,
     iconify: "logos:r-lang",
     link: "https://www.r-project.org/",
   },
-  "rabbitmq": {
+  rabbitmq: {
     id: "rabbitmq",
     name: "RabbitMQ",
     category: TechCategory.Other,
     iconify: "logos:rabbitmq",
     link: "https://www.rabbitmq.com/",
   },
-  "rails": {
+  rails: {
     id: "rails",
     name: "Ruby on Rails",
     category: TechCategory.Framework,
     iconify: "logos:rails",
     link: "https://rubyonrails.org/",
   },
-  "react": {
+  react: {
     id: "react",
     name: "React",
     category: TechCategory.Framework,
@@ -767,154 +767,154 @@ export const TECH_STACK = {
     iconifyDark: "logos:react-dark",
     link: "https://react.dev/",
   },
-  "reactivex": {
+  reactivex: {
     id: "reactivex",
     name: "ReactiveX",
     category: TechCategory.Library,
     iconify: "logos:reactivex",
   },
-  "redhat": {
+  redhat: {
     id: "redhat",
     name: "Red Hat",
     category: TechCategory.Platform,
     iconify: "logos:redhat",
   },
-  "redis": {
+  redis: {
     id: "redis",
     name: "Redis",
     category: TechCategory.Database,
     iconify: "logos:redis",
     link: "https://redis.io/",
   },
-  "redux": {
+  redux: {
     id: "redux",
     name: "Redux",
     category: TechCategory.Library,
     iconify: "logos:redux",
     link: "https://redux.js.org/",
   },
-  "remix": {
+  remix: {
     id: "remix",
     name: "Remix",
     category: TechCategory.Framework,
     iconify: "logos:remix",
     link: "https://remix.run/",
   },
-  "replit": {
+  replit: {
     id: "replit",
     name: "Replit",
     category: TechCategory.Platform,
     iconify: "logos:replit",
   },
-  "rider": {
+  rider: {
     id: "rider",
     name: "JetBrains Rider",
     category: TechCategory.Platform,
     iconify: "logos:rider",
   },
-  "rollupjs": {
+  rollupjs: {
     id: "rollupjs",
     name: "Rollup.js",
     category: TechCategory.BuildTool,
     iconify: "logos:rollupjs",
     link: "https://rollupjs.org/",
   },
-  "ros": {
+  ros: {
     id: "ros",
     name: "Robot Operating System (ROS)",
     category: TechCategory.Platform,
     iconify: "logos:ros",
   },
-  "ruby": {
+  ruby: {
     id: "ruby",
     name: "Ruby",
     category: TechCategory.Language,
     iconify: "logos:ruby",
     link: "https://www.ruby-lang.org/",
   },
-  "rust": {
+  rust: {
     id: "rust",
     name: "Rust",
     category: TechCategory.Language,
     iconify: "logos:rust",
     link: "https://www.rust-lang.org/",
   },
-  "sass": {
+  sass: {
     id: "sass",
     name: "Sass",
     category: TechCategory.Language,
     iconify: "logos:sass",
     link: "https://sass-lang.com/",
   },
-  "spring": {
+  spring: {
     id: "spring",
     name: "Spring Framework",
     category: TechCategory.Framework,
     iconify: "logos:spring-icon",
     link: "https://spring.io/",
   },
-  "sqlite": {
+  sqlite: {
     id: "sqlite",
     name: "SQLite",
     category: TechCategory.Database,
     iconify: "logos:sqlite",
     link: "https://www.sqlite.org/",
   },
-  "stackoverflow": {
+  stackoverflow: {
     id: "stackoverflow",
     name: "Stack Overflow",
     category: TechCategory.Other,
     iconify: "logos:stackoverflow",
   },
-  "sublime": {
+  sublime: {
     id: "sublime",
     name: "Sublime Text",
     category: TechCategory.Platform,
     iconify: "logos:sublimetext",
   },
-  "supabase": {
+  supabase: {
     id: "supabase",
     name: "Supabase",
     category: TechCategory.Database,
     iconify: "logos:supabase-icon",
     link: "https://supabase.com/",
   },
-  "scala": {
+  scala: {
     id: "scala",
     name: "Scala",
     category: TechCategory.Language,
     iconify: "logos:scala",
     link: "https://www.scala-lang.org/",
   },
-  "selenium": {
+  selenium: {
     id: "selenium",
     name: "Selenium",
     category: TechCategory.Library,
     iconify: "logos:selenium",
     link: "https://www.selenium.dev/",
   },
-  "sentry": {
+  sentry: {
     id: "sentry",
     name: "Sentry",
     category: TechCategory.Other,
     iconify: "logos:sentry",
     link: "https://sentry.io/",
   },
-  "sequelize": {
+  sequelize: {
     id: "sequelize",
     name: "Sequelize",
     category: TechCategory.Library,
     iconify: "logos:sequelize",
     link: "https://sequelize.org/",
   },
-  "solidity": {
+  solidity: {
     id: "solidity",
     name: "Solidity",
     category: TechCategory.Language,
     iconify: "logos:solidity",
     link: "https://soliditylang.org/",
   },
-  "solidjs": {
+  solidjs: {
     id: "solidjs",
     name: "SolidJS",
     category: TechCategory.Framework,
@@ -922,7 +922,7 @@ export const TECH_STACK = {
     iconifyDark: "logos:solidjs-icon-dark",
     link: "https://www.solidjs.com/",
   },
-  "svelte": {
+  svelte: {
     id: "svelte",
     name: "Svelte",
     category: TechCategory.Framework,
@@ -930,34 +930,34 @@ export const TECH_STACK = {
     iconifyDark: "logos:svelte-icon-dark",
     link: "https://svelte.dev/",
   },
-  "svg": {
+  svg: {
     id: "svg",
     name: "SVG (Scalable Vector Graphics)",
     category: TechCategory.Other,
     iconify: "logos:svg",
     link: "https://developer.mozilla.org/en-US/docs/Web/SVG",
   },
-  "swift": {
+  swift: {
     id: "swift",
     name: "Swift",
     category: TechCategory.Language,
     iconify: "logos:swift",
     link: "https://www.swift.org/",
   },
-  "symfony": {
+  symfony: {
     id: "symfony",
     name: "Symfony",
     category: TechCategory.Framework,
     iconify: "logos:symfony",
   },
-  "tailwind": {
+  tailwind: {
     id: "tailwind",
     name: "Tailwind CSS",
     category: TechCategory.Library,
     iconify: "logos:tailwindcss-icon",
     link: "https://tailwindcss.com/",
   },
-  "tauri": {
+  tauri: {
     id: "tauri",
     name: "Tauri",
     category: TechCategory.Platform,
@@ -965,54 +965,54 @@ export const TECH_STACK = {
     iconifyDark: "logos:tauri-dark",
     link: "https://tauri.app/",
   },
-  "tensorflow": {
+  tensorflow: {
     id: "tensorflow",
     name: "TensorFlow",
     category: TechCategory.Library,
     iconify: "logos:tensorflow",
     link: "https://www.tensorflow.org/",
   },
-  "terraform": {
+  terraform: {
     id: "terraform",
     name: "Terraform",
     category: TechCategory.Other,
     iconify: "logos:terraform",
     link: "https://www.terraform.io/",
   },
-  "threejs": {
+  threejs: {
     id: "threejs",
     name: "Three.js",
     category: TechCategory.Library,
     iconify: "logos:threejs",
   },
-  "ts": {
+  ts: {
     id: "ts",
     name: "TypeScript",
     category: TechCategory.Language,
     iconify: "logos:typescript-icon",
   },
-  "ubuntu": {
+  ubuntu: {
     id: "ubuntu",
     name: "Ubuntu",
     category: TechCategory.Platform,
     iconify: "logos:ubuntu",
     link: "https://ubuntu.com/",
   },
-  "unity": {
+  unity: {
     id: "unity",
     name: "Unity",
     category: TechCategory.Platform,
     iconify: "logos:unity",
     link: "https://unity.com/",
   },
-  "unreal": {
+  unreal: {
     id: "unreal",
     name: "Unreal Engine",
     category: TechCategory.Other,
     iconify: "logos:unrealengine",
     link: "https://www.unrealengine.com/",
   },
-  "vercel": {
+  vercel: {
     id: "vercel",
     name: "Vercel",
     category: TechCategory.Platform,
@@ -1020,20 +1020,20 @@ export const TECH_STACK = {
     iconifyDark: "logos:vercel-icon-dark",
     link: "https://vercel.com/",
   },
-  "vim": {
+  vim: {
     id: "vim",
     name: "Vim",
     category: TechCategory.Other,
     iconify: "logos:vim",
     link: "https://www.vim.org/",
   },
-  "visualstudio": {
+  visualstudio: {
     id: "visualstudio",
     name: "Visual Studio",
     category: TechCategory.Platform,
     iconify: "logos:visual-studio",
   },
-  "vite": {
+  vite: {
     id: "vite",
     name: "Vite",
     category: TechCategory.BuildTool,
@@ -1041,14 +1041,14 @@ export const TECH_STACK = {
     iconifyDark: "logos:vitejs-dark",
     link: "https://vitejs.dev/",
   },
-  "vitest": {
+  vitest: {
     id: "vitest",
     name: "Vitest",
     category: TechCategory.Testing,
     iconify: "logos:vitest",
     link: "https://vitest.dev/",
   },
-  "vscode": {
+  vscode: {
     id: "vscode",
     name: "Visual Studio Code",
     category: TechCategory.Other,
@@ -1056,7 +1056,7 @@ export const TECH_STACK = {
     iconifyDark: "logos:visual-studio-code-dark",
     link: "https://code.visualstudio.com/",
   },
-  "vue": {
+  vue: {
     id: "vue",
     name: "Vue.js",
     category: TechCategory.Framework,
@@ -1064,264 +1064,264 @@ export const TECH_STACK = {
     iconifyDark: "logos:vue-dark",
     link: "https://vuejs.org/",
   },
-  "wasm": {
+  wasm: {
     id: "wasm",
     name: "WebAssembly (WASM)",
     category: TechCategory.Other,
     iconify: "logos:webassembly",
   },
-  "webflow": {
+  webflow: {
     id: "webflow",
     name: "Webflow",
     category: TechCategory.Platform,
     iconify: "logos:webflow",
   },
-  "webpack": {
+  webpack: {
     id: "webpack",
     name: "Webpack",
     category: TechCategory.BuildTool,
     iconify: "logos:webpack",
     link: "https://webpack.js.org/",
   },
-  "webstorm": {
+  webstorm: {
     id: "webstorm",
     name: "WebStorm",
     category: TechCategory.Platform,
     iconify: "logos:webstorm",
     link: "https://www.jetbrains.com/webstorm/",
   },
-  "wordpress": {
+  wordpress: {
     id: "wordpress",
     name: "WordPress",
     category: TechCategory.Other,
     iconify: "logos:wordpress",
     link: "https://wordpress.org/",
   },
-  "yarn": {
+  yarn: {
     id: "yarn",
     name: "Yarn",
     category: TechCategory.Other,
     iconify: "logos:yarn",
     link: "https://yarnpkg.com/",
   },
-  "zig": {
+  zig: {
     id: "zig",
     name: "Zig",
     category: TechCategory.Language,
     iconify: "logos:zig",
   },
-  "gleam": {
+  gleam: {
     id: "gleam",
     name: "Gleam",
     category: TechCategory.Language,
-    iconify: "logos:gleam"
+    iconify: "logos:gleam",
   },
-  "elm": {
+  elm: {
     id: "elm",
     name: "Elm",
     category: TechCategory.Language,
-    iconify: "logos:elm"
+    iconify: "logos:elm",
   },
-  "erlang": {
+  erlang: {
     id: "erlang",
     name: "Erlang",
     category: TechCategory.Language,
-    iconify: "logos:erlang"
+    iconify: "logos:erlang",
   },
-  "qwik": {
+  qwik: {
     id: "qwik",
     name: "Qwik",
     category: TechCategory.Framework,
     iconify: "logos:qwik",
-    iconifyDark: "logos:qwik-dark"
+    iconifyDark: "logos:qwik-dark",
   },
-  "preact": {
+  preact: {
     id: "preact",
     name: "Preact",
     category: TechCategory.Framework,
     iconify: "logos:preact",
-    iconifyDark: "logos:preact-dark"
+    iconifyDark: "logos:preact-dark",
   },
-  "analog": {
+  analog: {
     id: "analog",
     name: "Analog",
     category: TechCategory.Framework,
-    iconify: "logos:analog"
+    iconify: "logos:analog",
   },
-  "hono": {
+  hono: {
     id: "hono",
     name: "Hono",
     category: TechCategory.Framework,
-    iconify: "logos:hono"
+    iconify: "logos:hono",
   },
-  "mariadb": {
+  mariadb: {
     id: "mariadb",
     name: "MariaDB",
     category: TechCategory.Database,
-    iconify: "logos:mariadb"
+    iconify: "logos:mariadb",
   },
-  "influxdb": {
+  influxdb: {
     id: "influxdb",
     name: "InfluxDB",
     category: TechCategory.Database,
-    iconify: "logos:influxdb"
+    iconify: "logos:influxdb",
   },
-  "neon": {
+  neon: {
     id: "neon",
     name: "Neon",
     category: TechCategory.Database,
-    iconify: "logos:neon"
+    iconify: "logos:neon",
   },
-  "upstash": {
+  upstash: {
     id: "upstash",
     name: "Upstash",
     category: TechCategory.Database,
-    iconify: "logos:upstash"
+    iconify: "logos:upstash",
   },
-  "fly": {
+  fly: {
     id: "fly",
     name: "Fly.io",
     category: TechCategory.Cloud,
-    iconify: "logos:fly"
+    iconify: "logos:fly",
   },
   "cloudflare-workers": {
     id: "cloudflare-workers",
     name: "Cloudflare Workers",
     category: TechCategory.Cloud,
-    iconify: "logos:cloudflare-workers"
+    iconify: "logos:cloudflare-workers",
   },
-  "esbuild": {
+  esbuild: {
     id: "esbuild",
     name: "esbuild",
     category: TechCategory.BuildTool,
-    iconify: "logos:esbuild"
+    iconify: "logos:esbuild",
   },
-  "parcel": {
+  parcel: {
     id: "parcel",
     name: "Parcel",
     category: TechCategory.BuildTool,
-    iconify: "logos:parcel-icon"
+    iconify: "logos:parcel-icon",
   },
-  "turbopack": {
+  turbopack: {
     id: "turbopack",
     name: "Turbopack",
     category: TechCategory.BuildTool,
-    iconify: "logos:turbopack"
+    iconify: "logos:turbopack",
   },
-  "turborepo": {
+  turborepo: {
     id: "turborepo",
     name: "Turborepo",
     category: TechCategory.BuildTool,
-    iconify: "logos:turborepo-icon"
+    iconify: "logos:turborepo-icon",
   },
-  "nx": {
+  nx: {
     id: "nx",
     name: "Nx",
     category: TechCategory.BuildTool,
-    iconify: "logos:nx"
+    iconify: "logos:nx",
   },
-  "composer": {
+  composer: {
     id: "composer",
     name: "Composer",
     category: TechCategory.BuildTool,
-    iconify: "logos:composer"
+    iconify: "logos:composer",
   },
-  "circleci": {
+  circleci: {
     id: "circleci",
     name: "CircleCI",
     category: TechCategory.CICD,
-    iconify: "logos:circleci"
+    iconify: "logos:circleci",
   },
-  "playwright": {
+  playwright: {
     id: "playwright",
     name: "Playwright",
     category: TechCategory.Testing,
-    iconify: "logos:playwright"
+    iconify: "logos:playwright",
   },
-  "storybook": {
+  storybook: {
     id: "storybook",
     name: "Storybook",
     category: TechCategory.Testing,
-    iconify: "logos:storybook-icon"
+    iconify: "logos:storybook-icon",
   },
-  "testinglibrary": {
+  testinglibrary: {
     id: "testinglibrary",
     name: "Testing Library",
     category: TechCategory.Testing,
-    iconify: "logos:testing-library"
+    iconify: "logos:testing-library",
   },
-  "mocha": {
+  mocha: {
     id: "mocha",
     name: "Mocha",
     category: TechCategory.Testing,
-    iconify: "logos:mocha"
+    iconify: "logos:mocha",
   },
-  "trpc": {
+  trpc: {
     id: "trpc",
     name: "tRPC",
     category: TechCategory.Library,
-    iconify: "logos:trpc"
+    iconify: "logos:trpc",
   },
-  "mobx": {
+  mobx: {
     id: "mobx",
     name: "MobX",
     category: TechCategory.Library,
-    iconify: "logos:mobx"
+    iconify: "logos:mobx",
   },
-  "jotai": {
+  jotai: {
     id: "jotai",
     name: "Jotai",
     category: TechCategory.Library,
-    iconify: "logos:jotai"
+    iconify: "logos:jotai",
   },
-  "drizzle": {
+  drizzle: {
     id: "drizzle",
     name: "Drizzle ORM",
     category: TechCategory.Library,
-    iconify: "logos:drizzle"
+    iconify: "logos:drizzle",
   },
-  "payload": {
+  payload: {
     id: "payload",
     name: "Payload CMS",
     category: TechCategory.Other,
-    iconify: "logos:payload"
+    iconify: "logos:payload",
   },
-  "sanity": {
+  sanity: {
     id: "sanity",
     name: "Sanity",
     category: TechCategory.Other,
-    iconify: "logos:sanity"
+    iconify: "logos:sanity",
   },
-  "strapi": {
+  strapi: {
     id: "strapi",
     name: "Strapi",
     category: TechCategory.Other,
-    iconify: "logos:strapi-icon"
+    iconify: "logos:strapi-icon",
   },
-  "auth0": {
+  auth0: {
     id: "auth0",
     name: "Auth0",
     category: TechCategory.Other,
-    iconify: "logos:auth0-icon"
+    iconify: "logos:auth0-icon",
   },
-  "datadog": {
+  datadog: {
     id: "datadog",
     name: "Datadog",
     category: TechCategory.Monitoring,
-    iconify: "logos:datadog"
+    iconify: "logos:datadog",
   },
-  "openai": {
+  openai: {
     id: "openai",
     name: "OpenAI",
     category: TechCategory.Other,
-    iconify: "logos:openai-icon"
+    iconify: "logos:openai-icon",
   },
-  "anthropic": {
+  anthropic: {
     id: "anthropic",
     name: "Anthropic",
     category: TechCategory.Other,
-    iconify: "logos:anthropic"
-  }
+    iconify: "logos:anthropic",
+  },
 } as const satisfies Record<string, TechItem>;
 
 // Array format for backward compatibility

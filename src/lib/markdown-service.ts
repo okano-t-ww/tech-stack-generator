@@ -9,7 +9,7 @@ import type { TechItem, IconSize } from "@/types/tech";
  */
 
 const DEFAULT_ICON_SIZE: IconSize = 48 as IconSize;
-const ALIGNMENT = 'center' as const;
+const ALIGNMENT = "center" as const;
 
 /**
  * リンク付きアイコンHTML生成
@@ -32,12 +32,10 @@ export const generate = (
   iconSize: IconSize = DEFAULT_ICON_SIZE
 ): string => {
   if (selectedTechs.length === 0) {
-    return '';
+    return "";
   }
 
-  const icons = selectedTechs
-    .map((tech) => generateLinkedIcon(tech, iconSize))
-    .join(' ');
+  const icons = selectedTechs.map((tech) => generateLinkedIcon(tech, iconSize)).join(" ");
 
   return `<p align="${ALIGNMENT}">\n  ${icons}\n</p>`;
 };

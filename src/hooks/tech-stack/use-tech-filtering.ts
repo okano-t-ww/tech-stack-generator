@@ -22,9 +22,7 @@ export function useTechFiltering({
 }: UseTechFilteringProps): UseTechFilteringReturn {
   const [searchKeyword, setSearchKeyword] = useState("");
 
-  const categoryFiltered = techList.filter((tech) =>
-    categories.includes(tech.category)
-  );
+  const categoryFiltered = techList.filter((tech) => categories.includes(tech.category));
 
   const filteredTech = !searchKeyword
     ? categoryFiltered

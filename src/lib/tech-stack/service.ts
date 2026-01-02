@@ -1,5 +1,5 @@
-import { TECH_STACK, TECH_STACK_LIST } from '@/data/tech-stack-data';
-import type { TechItem, TechCategory, TechId } from '@/types/tech';
+import { TECH_STACK, TECH_STACK_LIST } from "@/data/tech-stack-data";
+import type { TechItem, TechCategory, TechId } from "@/types/tech";
 import { fromNullable, type Option } from "@/lib/fp-types";
 
 /**
@@ -38,9 +38,7 @@ export const filterByCategories = (categories: readonly TechCategory[]): readonl
  */
 export const search = (keyword: string): readonly TechItem[] => {
   const query = keyword.toLowerCase();
-  return TECH_STACK_LIST.filter((tech) =>
-    tech.name.toLowerCase().includes(query)
-  );
+  return TECH_STACK_LIST.filter((tech) => tech.name.toLowerCase().includes(query));
 };
 
 /**
@@ -51,7 +49,7 @@ export const search = (keyword: string): readonly TechItem[] => {
  * @returns リンクURL
  */
 export const getLink = (tech: TechItem): string => {
-  if ('link' in tech && tech.link) {
+  if ("link" in tech && tech.link) {
     return tech.link;
   }
   // フォールバック: Simple Icons検索
@@ -82,11 +80,14 @@ export const getAllIds = (): readonly TechId[] => {
  * @returns カテゴリをキーとしたTech配列のマップ
  */
 export const groupByCategory = (): Record<TechCategory, readonly TechItem[]> => {
-  return TECH_STACK_LIST.reduce((acc, tech) => {
-    if (!acc[tech.category]) {
-      acc[tech.category] = [];
-    }
-    acc[tech.category] = [...acc[tech.category], tech];
-    return acc;
-  }, {} as Record<TechCategory, TechItem[]>);
+  return TECH_STACK_LIST.reduce(
+    (acc, tech) => {
+      if (!acc[tech.category]) {
+        acc[tech.category] = [];
+      }
+      acc[tech.category] = [...acc[tech.category], tech];
+      return acc;
+    },
+    {} as Record<TechCategory, TechItem[]>
+  );
 };

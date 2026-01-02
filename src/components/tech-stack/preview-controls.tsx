@@ -11,7 +11,6 @@ interface PreviewControlsProps {
 }
 
 export const PreviewControls = ({
-  perLine,
   onPerLineChange,
   includeTitle,
   onIncludeTitleChange,

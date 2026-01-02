@@ -1,10 +1,4 @@
-import {
-  parseAsArrayOf,
-  parseAsInteger,
-  parseAsBoolean,
-  parseAsString,
-  type ParserBuilder,
-} from "nuqs";
+import { parseAsArrayOf, parseAsInteger, parseAsBoolean, parseAsString } from "nuqs";
 import type { TabPrefix } from "@/lib/tech-stack/tab-config";
 
 export type PerLine = 5 | 6 | 7 | 8 | 9 | 10;

@@ -21,11 +21,7 @@ export const TechSelectionPanel = (props: TechSelectionPanelProps) => {
     <div className="xl:col-span-2 space-y-2">
       <div className="flex items-center justify-between">
         <label className="form-label">Technologies</label>
-        <TooltipIconButton
-          onClick={onSelectAll}
-          icon={selectAllIcon}
-          tooltipText="Select All"
-        />
+        <TooltipIconButton onClick={onSelectAll} icon={selectAllIcon} tooltipText="Select All" />
       </div>
       <Input
         placeholder="Search technologies..."

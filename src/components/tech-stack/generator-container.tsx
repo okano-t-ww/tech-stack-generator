@@ -8,10 +8,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { TAB_CONFIGS, DEFAULT_TAB } from "@/lib/tech-stack/tab-config";
 
 export default function GeneratorContainer() {
-  const [activeTab, setActiveTab] = useQueryState(
-    "tab",
-    parseAsString.withDefault(DEFAULT_TAB)
-  );
+  const [activeTab, setActiveTab] = useQueryState("tab", parseAsString.withDefault(DEFAULT_TAB));
 
   return (
     <div className="w-full min-h-screen">
@@ -20,11 +17,7 @@ export default function GeneratorContainer() {
           <ScrollArea className="whitespace-nowrap pb-3 rounded-md">
             <TabsList className="w-full">
               {TAB_CONFIGS.map(({ title }) => (
-                <TabsTrigger
-                  key={title}
-                  value={title}
-                  className="whitespace-nowrap"
-                >
+                <TabsTrigger key={title} value={title} className="whitespace-nowrap">
                   {title}
                 </TabsTrigger>
               ))}

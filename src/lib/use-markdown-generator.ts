@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import * as MarkdownService from './markdown-service';
+import { useState, useCallback } from "react";
+import * as MarkdownService from "./markdown-service";
 import type { TechItem, IconSize } from "@/types/tech";
 
 /**
@@ -8,7 +8,7 @@ import type { TechItem, IconSize } from "@/types/tech";
  * 選択されたTechからMarkdownを生成し、コピー機能を提供
  */
 export function useMarkdownGenerator() {
-  const [markdown, setMarkdown] = useState<string>('');
+  const [markdown, setMarkdown] = useState<string>("");
 
   /**
    * Markdownを生成
@@ -26,7 +26,7 @@ export function useMarkdownGenerator() {
    * Markdownをクリア
    */
   const clear = useCallback(() => {
-    setMarkdown('');
+    setMarkdown("");
   }, []);
 
   /**

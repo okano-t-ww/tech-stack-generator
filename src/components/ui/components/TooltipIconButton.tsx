@@ -1,11 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import type { LucideProps } from "lucide-react";
 
 export interface TooltipIconButtonProps {
@@ -16,11 +11,7 @@ export interface TooltipIconButtonProps {
   tooltipText: string;
 }
 
-export function TooltipIconButton({
-  onClick,
-  icon: Icon,
-  tooltipText,
-}: TooltipIconButtonProps) {
+export function TooltipIconButton({ onClick, icon: Icon, tooltipText }: TooltipIconButtonProps) {
   return (
     <TooltipProvider>
       <Tooltip>
